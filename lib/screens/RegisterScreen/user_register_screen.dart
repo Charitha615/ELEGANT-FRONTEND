@@ -13,6 +13,13 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class InitState extends State<RegisterScreen> {
+
+TextEditingController emailController = TextEditingController();
+TextEditingController nameController = TextEditingController();
+TextEditingController numberController = TextEditingController();
+TextEditingController passwordController = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return initWidget();
@@ -30,53 +37,7 @@ class InitState extends State<RegisterScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Container(
-            //   height: 400,
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.only(
-            //         bottomLeft: Radius.circular(1000),
-            //         bottomRight: Radius.circular(0),
-            //         topLeft: Radius.circular(0),
-            //         topRight: Radius.circular(0)),
-            //     // color: Color(0xFF2196F3),
-            //     gradient: LinearGradient(
-            //       colors: [
-            //         Color.fromARGB(255, 100, 100, 192),
-            //         Color.fromARGB(255, 237, 237, 237)
-            //       ],
-            //       begin: Alignment.topCenter,
-            //       end: Alignment.bottomCenter,
-            //     ),
-            //   ),
-            //   child: Center(
-            //     child: Column(
-            //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //       crossAxisAlignment: CrossAxisAlignment.start,
-            //       children: [
-            //         Padding(
-            //           padding: const EdgeInsets.only(top: 0, left: 0),
-            //           child: Container(
-            //             child: Image.asset(
-            //               "assets/images/Picture1.png",
-            //               height: 320,
-            //               width: 320,
-            //             ),
-            //           ),
-            //         ),
-            //         Padding(
-            //           padding: const EdgeInsets.only(left: 50, top: 20),
-            //           child: Text(
-            //             "Elegant Fit on!",
-            //             style: TextStyle(
-            //               fontSize: 35,
-            //               fontWeight: FontWeight.bold,
-            //             ),
-            //           ),
-            //         )
-            //       ],
-            //     ),
-            //   ),
-            // ),
+         
             Container(
               height: _headerHeight,
               child: HeaderWidget(_headerHeight, true,
@@ -109,6 +70,7 @@ class InitState extends State<RegisterScreen> {
                 onChanged: (value) {
                   userEmail = value;
                 },
+              
               ),
             ),
             Container(

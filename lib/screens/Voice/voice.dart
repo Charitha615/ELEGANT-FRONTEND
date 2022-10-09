@@ -46,29 +46,36 @@ class MyApps extends StatelessWidget {
               titlePosition: GFPosition.start,
               showOverlayImage: true,
               imageOverlay: AssetImage(
-                "assets/images/MicrosoftTeams-image.png",
+                "assets/images/img.jpeg",
               ),
-              height: 260,
+              height: 560,
               content: Padding(
-                padding: const EdgeInsets.only(top: 100),
+                padding: const EdgeInsets.only(top: 130),
                 child: Text(
-                  "Hello, You have selected a really nice dress. It is too tight to your body. Please try an another one",
-                  style: TextStyle(color: Colors.white),
+                  "Photograph Instructions: \n\n"+
+                  "1. A front facing photograph taken of you from head to toe visible. \n\n"+
+                  "2. Within 6 to 7 feets away from the camera.\n\n"+
+                  "3. Wearing clothes that shows the body size as much as possible. \n\n"+
+                  "4. Have a white or plane background in the photograph.\n\n"+
+                  "Would be the most suitable for the 3D avatar cretaion to get the most accurate results.",
+                  style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold),
                 ),
+                
+                
               ),
               buttonBar: GFButtonBar(
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.only(top: 40),
+                    padding: const EdgeInsets.only(left: 190),
                     child: GFButton(
                       onPressed: () => speak(),
-                      color: Color(0xFF111F41),
-                      text: "Tap to speech",
+                      color: Color.fromARGB(255, 20, 80, 234),
+                      text: "Next",
                       // icon: Icon(Icons.record_voice_over_outlined),
-                      icon: Lottie.network(
-                        'https://assets4.lottiefiles.com/packages/lf20_tcvb4fef.json',
-                        height: 200,
-                      ),
+                      // icon: Lottie.network(
+                      //   'https://assets4.lottiefiles.com/packages/lf20_tcvb4fef.json',
+                      //   height: 200,
+                      // ),
                     ),
                   ),
                 ],

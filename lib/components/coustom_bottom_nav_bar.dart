@@ -60,11 +60,13 @@ class CustomBottomNavBar extends StatelessWidget {
                   height: 25,
                   width: 25,
                 ),
-                onPressed: () {   Navigator.push(
+                onPressed: () {
+                  Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Avatar(),
-                      ));},
+                        builder: (context) => HomeScreen(),
+                      ));
+                },
               ),
               IconButton(
                 icon: SvgPicture.asset("assets/icons/Chat bubble Icon.svg"),
@@ -72,7 +74,7 @@ class CustomBottomNavBar extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => VoicePage(),
+                        builder: (context) => HomeScreen(),
                       ));
                 },
               ),

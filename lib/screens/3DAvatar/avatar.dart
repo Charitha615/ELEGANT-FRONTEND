@@ -8,10 +8,15 @@ import 'package:elegant_fit_on/screens/3DAvatar/lib/png_image.dart';
 import 'package:elegant_fit_on/screens/3DAvatar/pose_mask_painter.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 import 'dart:ui' as ui;
+import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
+import 'package:path/path.dart';
 
 import 'package:permission_handler/permission_handler.dart';
+import 'package:ssh/ssh.dart';
 
 void main() {
   runApp(const Avatar());
@@ -26,12 +31,11 @@ class Avatar extends StatefulWidget {
 
 class _AvatarState extends State<Avatar> {
   int _selectedTabIndex = 0;
-
+  String backendip = "192.168.8.158";
   bool _isDetectingPose = false;
   bool _isDetectingBodyMask = false;
-
+  var fp;
   Image? _selectedImage;
-
   Pose? _detectedPose;
   ui.Image? _maskImage;
   Image? _cameraImage;
@@ -46,6 +50,11 @@ class _AvatarState extends State<Avatar> {
       _resetState();
       setState(() {
         _selectedImage = Image.file(File(path));
+        fp = File(path);
+        print(
+            '.....................das..........................................');
+        print(fp);
+        avatercreate();
       });
     }
   }
@@ -218,6 +227,93 @@ class _AvatarState extends State<Avatar> {
     });
   }
 
+  void avatercreate() async {
+    // print("Connecting to backend...");
+    // var client = SSHClient(
+    //   host: backendip,
+    //   port: 22,
+    //   username: "sliit",
+    //   passwordOrKey: "1994",
+    // );
+
+    // String result;
+    // try {
+    //   result = await client.connect();
+    //   if (result == "session_connected") {
+    //     // result = await client.execute(
+    //     //     "sshpass -p 'Lucky' scp -r /opt/nimz/pix2surf/video.mp4 192.168.8.101:d:/Temp/Nimz_Proj/flutter/Elegeant_FitOn/assets/videos");
+    //     result = await client.execute(
+    //         "sshpass -p 'research@12' scp -r ${fp} 192.168.8.124:D:/Research/sizer/assets/videos/");
+    //     print("Loaded");
+    //   }
+    //   client.disconnect();
+    // } on PlatformException catch (e) {
+    //   print('Error: ${e.code}\nError Message: ${e.message}');
+    // }
+    //
+    print("inside...................................................");
+    // var postUri = Uri.parse("http://192.168.8.158:5000/pose_estimator");
+    // http.MultipartRequest request = new http.MultipartRequest("GET", postUri);
+    // http.MultipartFile multipartFile =
+    //     await http.MultipartFile.fromPath('image', fp);
+    // request.files.add(multipartFile);
+    // http.StreamedResponse response = await request.send();
+    // print(response.statusCode);
+    // var postUri = Uri.parse("http://192.168.8.158:5000/pose_estimator");
+    // var request = new http.MultipartRequest("POST", postUri);
+    // request.fields['user'] = 'someone@somewhere.com';
+    // // request.files.add(http.MultipartFile.fromPath('package', 'build/package.tar.gz', contentType: new MediaType('image', 'jpeg')));
+    // request.files.add(new http.MultipartFile.fromBytes(
+    //     'file', await File.fromUri(fp).readAsBytes(),
+    //     contentType: new MediaType('image', 'jpeg')));
+    // request.send().then((response) {
+    //   if (response.statusCode == 200) print("Uploaded!");
+    // });
+    // File file = new File(fp);
+    // String path = basename(file.path);
+    String path = fp.toString();
+    String? newqqq = path.split(":")?.last;
+    String ello = newqqq!.substring(2, newqqq.length - 1);
+    // File(fp).readAsString().then((String contents) {
+    //   print("...............................this....................." +
+    //       contents);
+    // });
+    // String path = File(fp).uri.pathSegments.last;
+    // String path = fp.toString();
+    print("psth : " + path);
+    print("newqqq : " + newqqq!);
+    print("ello : " + ello);
+    try {
+      print("charitha....................................");
+      print(fp);
+      var formdata =
+          FormData.fromMap({"image": await MultipartFile.fromFile(ello)});
+      print("middle....................................");
+      var response = await Dio()
+          .post('http://192.168.8.158:5000/pose_estimator', data: formdata);
+      print(response);
+      print("lsls....................................");
+    } catch (e) {
+      print(e);
+      print("catch....................................");
+    }
+    // var formData = FormData.fromMap({
+    //   'name': 'wendux',
+    //   'age': 25,
+    //   'file': await MultipartFile.fromFile('./text.txt', filename: 'upload.txt')
+    // });
+    // response = await Dio.post('/info', data: formData);
+  }
+
+  // uploadFile() async {
+  //   try{
+  //     var url = 'http://192.168.8.158:5000/pose_estimator';
+  //     var request = new http.MultipartRequest("POST", url);
+  //   } catch(e){
+
+  //   }
+  // }
+
   Widget get _imageDetectionView => SingleChildScrollView(
         child: Center(
           child: Column(
@@ -239,6 +335,9 @@ class _AvatarState extends State<Avatar> {
                   width: 400,
                 ),
               ),
+              Container(
+                  // child: Text(_selectImage),
+                  ),
               GestureDetector(
                 child: ClipRect(
                   child: CustomPaint(

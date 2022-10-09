@@ -1,6 +1,8 @@
 import 'package:elegant_fit_on/components/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:elegant_fit_on/screens/Voice/voice.dart';
+import 'package:elegant_fit_on/screens/ClothesSelect/ShoppingItems.dart';
 
 class Categories extends StatelessWidget {
   @override
@@ -10,14 +12,23 @@ class Categories extends StatelessWidget {
       {
         "icon": "assets/icons/voice-one-svgrepo-com.svg",
         "text": "Voice",
-        "press": "VoicePage"
+        "press": "VoicePage()"
       },
       {
         "icon": "assets/icons/baseball-clothes-svgrepo-com.svg",
-        "text": "Clothes "
+        "text": "Clothes ",
+        "press": ""
       },
-      {"icon": "assets/icons/history-svgrepo-com (1).svg", "text": "History"},
-      {"icon": "assets/icons/more-svgrepo-com.svg", "text": "More"},
+      {
+        "icon": "assets/icons/history-svgrepo-com (1).svg",
+        "text": "History",
+        "press": ""
+      },
+      {
+        "icon": "assets/icons/more-svgrepo-com.svg",
+        "text": "More",
+        "press": ""
+      },
     ];
     return Padding(
       padding: EdgeInsets.all(getProportionateScreenWidth(20)),
@@ -30,7 +41,17 @@ class Categories extends StatelessWidget {
             icon: categories[index]["icon"],
             text: categories[index]["text"],
             press: () {
-              categories[index]["press"];
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => sitems('Male', 16, 32, 32),//myshoulderwidth, myhip, myleglength
+                  // builder: (context) => sitems('Male', 14, 34, 34),//myshoulderwidth, myhip, myleglength
+                  // builder: (context) => sitems('Male', 20, 36, 36),//myshoulderwidth, myhip, myleglength
+
+                  // builder: (context) => categories[index]
+                  //     ["press"], //myshoulderwidth, myhip, myleglength
+                ),
+              );
             },
           ),
         ),

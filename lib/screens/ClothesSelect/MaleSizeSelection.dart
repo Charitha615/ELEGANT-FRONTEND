@@ -61,9 +61,6 @@ class MyHomePage extends State {
   MyHomePage(@required this.clothType, @required this.myshoulderwidth,
       @required this.myhip, @required this.myleglength);
 
-  // void set rv(String val) {
-  //   RecommendedSize = val;
-  // }
   final FlutterTts fluttertts = FlutterTts();
   speak(String vtext) async {
     debugPrint('Received Hello');

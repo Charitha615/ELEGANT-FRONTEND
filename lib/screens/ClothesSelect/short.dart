@@ -289,12 +289,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         // ),
                         child: GestureDetector(
                           onTap: () {
+                            String vs = "You have selected a nice short and it perfectly fits for you.";
                             // debugPrint('Received Process');
                             reassemble();
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => VideoPlayerScreen()));
+                                    builder: (context) => VideoPlayerScreen(vs)));
                           },
                           child: Container(
                             margin: EdgeInsets.only(top: 0),

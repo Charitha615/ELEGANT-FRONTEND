@@ -1,18 +1,28 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:native_video_view/native_video_view.dart';
 
-void main() => runApp(const VideoPlayerScreen());
+// void main() => runApp(const VideoPlayerScreen());
 
 class VideoPlayerScreen extends StatefulWidget {
-  const VideoPlayerScreen({Key? key}) : super(key: key);
-
+  // const VideoPlayerScreen({Key? key}) : super(key: key);
+  String vs;
+  VideoPlayerScreen(this.vs);
   @override
-  _VideoPlayerScreenState createState() => _VideoPlayerScreenState();
+  VideoPlayerScreenState createState() => VideoPlayerScreenState(vs);
 }
 
-class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
+class VideoPlayerScreenState extends State<VideoPlayerScreen> {
+  final FlutterTts fluttertts = FlutterTts();
+  speak(String vtext) async {
+    debugPrint('Received Hello');
+    await fluttertts.speak(vtext);
+  }
+
+  String vsd;
+  VideoPlayerScreenState(@required this.vsd);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +39,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
               'assets/videos/video.mp4',
               sourceType: VideoSourceType.asset,
             );
+            speak(vsd);
           },
           onPrepared: (controller, info) {
             controller.play();

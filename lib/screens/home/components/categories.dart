@@ -43,8 +43,8 @@ class Categories extends StatelessWidget {
             press: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => VoicePage()
 
+                MaterialPageRoute(builder: (context) => VoicePage()
                     // builder: (context) => sitems('Male', 16, 32, 32),//myshoulderwidth, myhip, myleglength
                     // builder: (context) => sitems('Male', 14, 34, 34),//myshoulderwidth, myhip, myleglength
                     // builder: (context) => sitems('Male', 20, 36, 36),//myshoulderwidth, myhip, myleglength

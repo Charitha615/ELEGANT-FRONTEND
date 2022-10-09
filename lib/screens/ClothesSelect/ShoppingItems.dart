@@ -54,14 +54,15 @@ class MyHomePage extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Elegant FitOn"),
-      ),
+      // appBar: AppBar(
+      //   title: const Text("Elegant FitOn"),
+      // ),
       body: Center(
         child: Container(
           color: Color.fromARGB(255, 255, 255, 255),
           child: Column(
             children: <Widget>[
+              SizedBox(height: 50),
               SizedBox(
                 height: 40,
                 child: Padding(
@@ -78,6 +79,7 @@ class MyHomePage extends State {
                   ),
                 ),
               ),
+              
               SizedBox(
                 child: Column(
                   children: <Widget>[
@@ -143,6 +145,7 @@ class MyHomePage extends State {
                         ],
                       ),
                     ),
+                          SizedBox(height: 30),
                     Row(
                       children: [
                         Expanded(
@@ -195,6 +198,7 @@ class MyHomePage extends State {
                         )),
                       ],
                     ),
+                          SizedBox(height: 30),
                     Row(
                       children: [
                         Expanded(

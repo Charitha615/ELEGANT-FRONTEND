@@ -15,8 +15,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: FSplashScreen(title: 'Flutter Login UI'),
-      // home: VideoDemo(),
-      //  initialRoute: SplashScreen.routeName,
     );
   }
 }

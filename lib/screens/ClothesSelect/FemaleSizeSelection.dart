@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cube/flutter_cube.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'shirt.dart';
 import 'short.dart';
 import 'pants.dart';
@@ -59,6 +60,12 @@ class MyHomePage extends State {
   MyHomePage(@required this.clothType, @required this.myshoulderwidth,
       @required this.myhip, @required this.myleglength);
   @override
+  final FlutterTts fluttertts = FlutterTts();
+  speak(String vtext) async {
+    debugPrint('Received Hello');
+    await fluttertts.speak(vtext);
+  }
+
   Widget build(BuildContext context) {
     if (clothType == 'shirts') {
       if (myshoulderwidth >= 14 && myshoulderwidth <= 15) {
@@ -202,6 +209,16 @@ class MyHomePage extends State {
                               builder: (BuildContext context) =>
                                   _small(context),
                             );
+                            if (RecommendedSize == 'S') {
+                              String v1 = "This cloth is perfectly fit for you";
+                              speak(v1);
+                            } else if (RecommendedSize == 'M') {
+                              String v1 = "This cloth is too tight for you";
+                              speak(v1);
+                            } else if (RecommendedSize == 'L') {
+                              String v1 = "This cloth is too tight for you";
+                              speak(v1);
+                            }
                           },
                         ),
                       ),
@@ -243,6 +260,16 @@ class MyHomePage extends State {
                               builder: (BuildContext context) =>
                                   _medium(context),
                             );
+                            if (RecommendedSize == 'S') {
+                              String v1 = "This cloth is too large for you";
+                              speak(v1);
+                            } else if (RecommendedSize == 'M') {
+                              String v1 = "This cloth is perfectly fit for you";
+                              speak(v1);
+                            } else if (RecommendedSize == 'L') {
+                              String v1 = "This cloth is too tight for you";
+                              speak(v1);
+                            }
                           },
                         ),
                       ),
@@ -284,6 +311,16 @@ class MyHomePage extends State {
                               builder: (BuildContext context) =>
                                   _large(context),
                             );
+                            if (RecommendedSize == 'S') {
+                              String v1 = "This cloth is too large for you";
+                              speak(v1);
+                            } else if (RecommendedSize == 'M') {
+                              String v1 = "This cloth is too large for you";
+                              speak(v1);
+                            } else if (RecommendedSize == 'L') {
+                              String v1 = "This cloth is perfectly fit for you";
+                              speak(v1);
+                            }
                           },
                         ),
                       ),

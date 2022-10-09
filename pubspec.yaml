@@ -52,6 +52,7 @@ dependencies:
   hexcolor: ^2.0.7
   lottie: ^0.7.0+1
   flutter_cube: ^0.1.1
+  http: ^0.13.5
 
   # video_player: ^2.4.0
   # native_video_view: ^1.0.5
@@ -91,6 +92,7 @@ flutter:
     - assets/videos/
     - assets/cube/
     - assets/images/sizes/
+    - assets/avatar/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

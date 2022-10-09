@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_cube/flutter_cube.dart';
+import 'package:flutter_tts/flutter_tts.dart';
+import 'package:ssh/ssh.dart';
 import 'shirt.dart';
 import 'short.dart';
 import 'pants.dart';
@@ -61,6 +64,32 @@ class MyHomePage extends State {
   // void set rv(String val) {
   //   RecommendedSize = val;
   // }
+  final FlutterTts fluttertts = FlutterTts();
+  speak(String vtext) async {
+    debugPrint('Received Hello');
+    await fluttertts.speak(vtext);
+  }
+
+  void avatarretrv() async {
+    print("Connecting to backend...");
+    var client = SSHClient(
+      host: "192.168.8.158",
+      port: 22,
+      username: "sliit",
+      passwordOrKey: "1994",
+    );
+    String result;
+    try {
+      result = await client.connect();
+      if (result == "session_connected") {
+        result = await client.execute(
+            "sshpass -p 'research@12' scp -r /homw/sliit/VIBE/output/sample/meshes/0001/000000.obj 192.168.8.124:D:/Lectures/SLIIT/Y4S1/Frontend/assets/avatar");
+      }
+      client.disconnect();
+    } on PlatformException catch (e) {
+      print('Error: ${e.code}\nError Message: ${e.message}');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -150,6 +179,7 @@ class MyHomePage extends State {
                       scene.world.add(Object(
                           position: Vector3(0, 2.0, 0),
                           scale: Vector3(6.0, 6.0, 6.0),
+                          // fileName: 'assets/avatar/000000.obj'));
                           fileName: 'assets/cube/body_2.obj'));
                     },
                   ),
@@ -207,6 +237,16 @@ class MyHomePage extends State {
                               builder: (BuildContext context) =>
                                   _small(context),
                             );
+                            if (RecommendedSize == 'S') {
+                              String v1 = "This cloth is perfectly fit for you";
+                              speak(v1);
+                            } else if (RecommendedSize == 'M') {
+                              String v1 = "This cloth is too tight for you";
+                              speak(v1);
+                            } else if (RecommendedSize == 'L') {
+                              String v1 = "This cloth is too tight for you";
+                              speak(v1);
+                            }
                           },
                         ),
                       ),
@@ -248,6 +288,16 @@ class MyHomePage extends State {
                               builder: (BuildContext context) =>
                                   _medium(context),
                             );
+                            if (RecommendedSize == 'S') {
+                              String v1 = "This cloth is too large for you";
+                              speak(v1);
+                            } else if (RecommendedSize == 'M') {
+                              String v1 = "This cloth is perfectly fit for you";
+                              speak(v1);
+                            } else if (RecommendedSize == 'L') {
+                              String v1 = "This cloth is too tight for you";
+                              speak(v1);
+                            }
                           },
                         ),
                       ),
@@ -289,6 +339,16 @@ class MyHomePage extends State {
                               builder: (BuildContext context) =>
                                   _large(context),
                             );
+                            if (RecommendedSize == 'S') {
+                              String v1 = "This cloth is too large for you";
+                              speak(v1);
+                            } else if (RecommendedSize == 'M') {
+                              String v1 = "This cloth is too large for you";
+                              speak(v1);
+                            } else if (RecommendedSize == 'L') {
+                              String v1 = "This cloth is perfectly fit for you";
+                              speak(v1);
+                            }
                           },
                         ),
                       ),

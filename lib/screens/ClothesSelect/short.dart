@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // result = await client.execute(
         //     "sshpass -p 'Lucky' scp -r /opt/nimz/pix2surf/video.mp4 192.168.8.101:D:/Temp/Nimz_Proj/flutter/Elegeant_FitOn/assets/videos");
         result = await client.execute(
-            "sshpass -p 'songul' scp -r /opt/nimz/pix2surf/video.mp4 192.168.8.109:D:/Research/sizer/assets/videos/");
+            "sshpass -p 'research@12' scp -r /opt/nimz/pix2surf/video.mp4 192.168.8.124:D:/Lectures/SLIIT/Y4S1/Frontend/assets/videos");
         print("Loaded");
       }
       client.disconnect();

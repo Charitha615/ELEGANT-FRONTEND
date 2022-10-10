@@ -4,6 +4,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:elegant_fit_on/screens/Voice/voice.dart';
 import 'package:elegant_fit_on/screens/ClothesSelect/ShoppingItems.dart';
 
+import '../../3DAvatar/avatar.dart';
+import '../../ClothesSelect/msrnt.dart';
+
 class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -43,16 +46,23 @@ class Categories extends StatelessWidget {
             press: () {
               Navigator.push(
                 context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      // sitems('Male', 16, 32, 32),
+                      VoicePage(),
+                  // builder: (context) => msrnt('Male', 14, 34, 34),
+                  //myshoulderwidth, myhip, myleglength
+                  // builder: (context) => sitems('Male', 14, 34, 34),//myshoulderwidth, myhip, myleglength
+                  // builder: (context) => sitems('Male', 20, 36, 36),//myshoulderwidth, myhip, myleglength
 
-                MaterialPageRoute(builder: (context) => VoicePage()
-                    // builder: (context) => sitems('Male', 16, 32, 32),//myshoulderwidth, myhip, myleglength
-                    // builder: (context) => sitems('Male', 14, 34, 34),//myshoulderwidth, myhip, myleglength
-                    // builder: (context) => sitems('Male', 20, 36, 36),//myshoulderwidth, myhip, myleglength
-
-                    // builder: (context) => categories[index]
-                    //     ["press"], //myshoulderwidth, myhip, myleglength
-                    ),
+                  // builder: (context) => categories[index]
+                  //     ["press"], //myshoulderwidth, myhip, myleglength
+                ),
               );
+              // Navigator.push(
+              //     context,
+              //     MaterialPageRoute(
+              //         builder: (context) => sitems('Male', 14, 34, 34)));
             },
           ),
         ),

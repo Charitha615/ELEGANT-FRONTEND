@@ -61,6 +61,9 @@ class MyHomePage extends State {
   MyHomePage(@required this.clothType, @required this.myshoulderwidth,
       @required this.myhip, @required this.myleglength);
 
+  // void set rv(String val) {
+  //   RecommendedSize = val;
+  // }
   final FlutterTts fluttertts = FlutterTts();
   speak(String vtext) async {
     debugPrint('Received Hello');
@@ -80,7 +83,7 @@ class MyHomePage extends State {
       result = await client.connect();
       if (result == "session_connected") {
         result = await client.execute(
-            "sshpass -p 'research@12' scp -r /homw/sliit/VIBE/output/sample/meshes/0001/000000.obj 192.168.8.124:D:/Lectures/SLIIT/Y4S1/Frontend/assets/avatar");
+            "sshpass -p 'research@12' scp -r /homw/sliit/VIBE/output/sample/meshes/0001/000000.obj 192.168.8.124:D:/Lectures/SLIIT/Y4S1/ELEGANT-FRONTEND/assets/avatar");
       }
       client.disconnect();
     } on PlatformException catch (e) {

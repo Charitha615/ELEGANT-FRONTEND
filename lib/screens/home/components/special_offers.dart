@@ -5,6 +5,8 @@ import 'package:elegant_fit_on/screens/Clothes/shorts/shorts.dart';
 import 'package:flutter/material.dart';
 
 import 'package:elegant_fit_on/components/size_config.dart';
+import '../../ClothesSelect/ShoppingItems.dart';
+import '../../ClothesSelect/msrnt.dart';
 import 'section_title.dart';
 
 class SpecialOffers extends StatelessWidget {
@@ -37,7 +39,7 @@ class SpecialOffers extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MyApp2(),
+                        builder: (context) => msrnt('Male', 16, 32, 32),
                       ));
                 },
               ),

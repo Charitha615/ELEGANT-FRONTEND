@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // result = await client.execute(
         //     "sshpass -p 'Lucky' scp -r /opt/nimz/pix2surf/video.mp4 192.168.8.101:d:/Temp/Nimz_Proj/flutter/Elegeant_FitOn/assets/videos");
         result = await client.execute(
-            "sshpass -p 'research@12' scp -r /opt/nimz/pix2surf/video.mp4 192.168.8.124:D:/Lectures/SLIIT/Y4S1/Frontend/assets/videos");
+            "sshpass -p 'research@12' scp -r /opt/nimz/pix2surf/video.mp4 192.168.8.124:D:/Lectures/SLIIT/Y4S1/ELEGANT-FRONTEND/assets/videos");
         print("Loaded");
       }
       client.disconnect();
@@ -88,7 +88,8 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-  String color = "Printed t-shirts";
+   String color = "Printed t-shirts";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -247,8 +248,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        VideoPlayerScreen(vs)));
+                                    builder: (context) => VideoPlayerScreen(vs)));
                           },
                           child: Container(
                             margin: EdgeInsets.only(top: 0),
@@ -282,6 +282,26 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                         ),
+                        // child: RaisedButton(
+                        //   elevation: 30,
+                        //   shape: RoundedRectangleBorder(
+                        //       borderRadius: BorderRadius.circular(0.0),
+                        //       side: BorderSide(
+                        //           color: Color.fromRGBO(0, 160, 227, 1))),
+                        //   onPressed: () {
+                        //     // debugPrint('Received Process');
+                        //     reassemble();
+                        //     Navigator.push(
+                        //         context,
+                        //         MaterialPageRoute(
+                        //             builder: (context) => VideoPlayerScreen()));
+                        //   },
+                        //   padding: EdgeInsets.all(10.0),
+                        //   color: Color.fromRGBO(0, 160, 227, 1),
+                        //   textColor: Colors.white,
+                        //   child: Text("View".toUpperCase(),
+                        //       style: TextStyle(fontSize: 15)),
+                        // ),
                       ),
                     ),
                   ],

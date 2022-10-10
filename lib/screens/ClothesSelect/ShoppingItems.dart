@@ -79,7 +79,6 @@ class MyHomePage extends State {
                   ),
                 ),
               ),
-              
               SizedBox(
                 child: Column(
                   children: <Widget>[
@@ -91,6 +90,7 @@ class MyHomePage extends State {
                               child: InkWell(
                             onTap: () {
                               print(mygender);
+                              print(myshoulderwidth);
                               if (mygender == 'Male') {
                                 Navigator.push(
                                   context,
@@ -145,7 +145,7 @@ class MyHomePage extends State {
                         ],
                       ),
                     ),
-                          SizedBox(height: 30),
+                    SizedBox(height: 30),
                     Row(
                       children: [
                         Expanded(
@@ -198,7 +198,7 @@ class MyHomePage extends State {
                         )),
                       ],
                     ),
-                          SizedBox(height: 30),
+                    SizedBox(height: 30),
                     Row(
                       children: [
                         Expanded(

@@ -58,7 +58,6 @@ class _MyHomePageState extends State<MyHomePage> {
       print(result);
       client.disconnect();
     } on PlatformException catch (e) {
-      // print('Error: ${e.code}\nError Message: ${e.message}');
       print("Connection Failed");
     }
   }
@@ -86,9 +85,6 @@ class _MyHomePageState extends State<MyHomePage> {
     } on PlatformException catch (e) {
       print('Error: ${e.code}\nError Message: ${e.message}');
     }
-
-    // Restart.restartApp(webOrigin: 'http://127.0.0.1:42311/zfE5lVkRixU=/#/vm');
-    // var result6 = await Process.runSync('flutter', ['arguments']);
   }
 
   @override
@@ -99,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Container(
-          color: Color.fromARGB(255, 255, 255, 255),
+          color: Color.fromARGB(255, 247, 247, 247),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -194,23 +190,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.only(top: 20),
                 child: Row(
                   children: [
-                    // OutlinedButton(
-                    //   onPressed: videoretrieve,
-                    //   child: const Text('Process'),
-                    // ),
+            
                     Padding(
                       padding: const EdgeInsets.only(top: 10, left: 50),
                       child: Container(
                         height: 50.0,
-                        // decoration: BoxDecoration(
-                        //   boxShadow: <BoxShadow>[
-                        //     BoxShadow(
-                        //       color: Colors.blue.withOpacity(0.1),
-                        //       blurRadius: 1,
-                        //       offset: Offset(10, 10),
-                        //     ),
-                        //   ],
-                        // ),
+             
                         child: GestureDetector(
                           onTap: videoretrieve,
                           child: Container(
@@ -245,48 +230,15 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                         ),
-                        // RaisedButton(
-                        //   elevation: 30,
-                        //   shape: RoundedRectangleBorder(
-                        //       borderRadius: BorderRadius.circular(0.0),
-                        //       side: BorderSide(
-                        //           color: Color.fromRGBO(0, 160, 227, 1))),
-                        //   onPressed: videoretrieve,
-                        //   padding: EdgeInsets.all(10.0),
-                        //   color: Color.fromRGBO(0, 160, 227, 1),
-                        //   textColor: Colors.white,
-                        //   child: Text("Process".toUpperCase(),
-                        //       style: TextStyle(fontSize: 15)),
-                        // ),
+                       
                       ),
                     ),
-                    // Padding(
-                    //   padding: const EdgeInsets.only(left: 150),
-                    //   child: OutlinedButton(
-                    //     onPressed: () {
-                    //       // debugPrint('Received Process');
-                    //       reassemble();
-                    //       Navigator.push(
-                    //           context,
-                    //           MaterialPageRoute(
-                    //               builder: (context) => VideoPlayerApp()));
-                    //     },
-                    //     child: const Text('View'),
-                    //   ),
-                    // )
+                 
                     Padding(
                       padding: const EdgeInsets.only(top: 10, left: 60),
                       child: Container(
                         height: 50.0,
-                        // decoration: BoxDecoration(
-                        //   boxShadow: <BoxShadow>[
-                        //     BoxShadow(
-                        //       color: Colors.blue.withOpacity(0.1),
-                        //       blurRadius: 1,
-                        //       offset: Offset(10, 10),
-                        //     ),
-                        //   ],
-                        // ),
+                 
                         child: GestureDetector(
                           onTap: () {
                             String vs =
@@ -296,7 +248,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => VideoPlayerScreen(vs)));
+                                    builder: (context) =>
+                                        VideoPlayerScreen(vs)));
                           },
                           child: Container(
                             margin: EdgeInsets.only(top: 0),
@@ -330,26 +283,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                         ),
-                        // child: RaisedButton(
-                        //   elevation: 30,
-                        //   shape: RoundedRectangleBorder(
-                        //       borderRadius: BorderRadius.circular(0.0),
-                        //       side: BorderSide(
-                        //           color: Color.fromRGBO(0, 160, 227, 1))),
-                        //   onPressed: () {
-                        //     // debugPrint('Received Process');
-                        //     reassemble();
-                        //     Navigator.push(
-                        //         context,
-                        //         MaterialPageRoute(
-                        //             builder: (context) => VideoPlayerScreen()));
-                        //   },
-                        //   padding: EdgeInsets.all(10.0),
-                        //   color: Color.fromRGBO(0, 160, 227, 1),
-                        //   textColor: Colors.white,
-                        //   child: Text("View".toUpperCase(),
-                        //       style: TextStyle(fontSize: 15)),
-                        // ),
+                        
                       ),
                     ),
                   ],

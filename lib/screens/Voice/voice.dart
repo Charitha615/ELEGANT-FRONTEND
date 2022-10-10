@@ -6,6 +6,8 @@ import 'package:getwidget/getwidget.dart';
 import 'package:lottie/lottie.dart';
 import 'package:elegant_fit_on/screens/ClothesSelect/ShoppingItems.dart';
 
+import '../3DAvatar/avatar.dart';
+
 void main() => runApp(VoicePage());
 
 class VoicePage extends StatelessWidget {
@@ -74,7 +76,12 @@ class MyApps extends StatelessWidget {
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => sitems('Male', 16, 32, 32),
+                          // builder: (context) => sitems('Male', 16, 32, 32),
+                          // builder: (context) => sitems('Male', 16, 32, 32),//myshoulderwidth, myhip, myleglength
+                          // builder: (context) => sitems('Male', 14, 34, 34),//myshoulderwidth, myhip, myleglength
+                          // builder: (context) => sitems('Male', 20, 36, 36),//myshoulderwidth, myhip, myleglength
+                          // builder: (context) => sitems('Female', 14, 32, 32),//myshoulderwidth, myhip, myleglength
+                          builder: (context) => Avatar(),
                         ),
                       ),
 

@@ -13,10 +13,13 @@ import 'package:lottie/lottie.dart';
 import 'dart:ui' as ui;
 import 'package:http/http.dart' as http;
 import 'package:dio/dio.dart';
-import 'package:path/path.dart';
+import 'package:path/path.dart' as Path;
 
 import 'package:permission_handler/permission_handler.dart';
 import 'package:ssh/ssh.dart';
+
+import '../ClothesSelect/ShoppingItems.dart';
+import '../ClothesSelect/msrnt.dart';
 
 void main() {
   runApp(const Avatar());
@@ -54,6 +57,7 @@ class _AvatarState extends State<Avatar> {
         print(
             '.....................das..........................................');
         print(fp);
+        _showToast(context);
         avatercreate();
       });
     }
@@ -228,91 +232,31 @@ class _AvatarState extends State<Avatar> {
   }
 
   void avatercreate() async {
-    // print("Connecting to backend...");
-    // var client = SSHClient(
-    //   host: backendip,
-    //   port: 22,
-    //   username: "sliit",
-    //   passwordOrKey: "1994",
-    // );
-
-    // String result;
-    // try {
-    //   result = await client.connect();
-    //   if (result == "session_connected") {
-    //     // result = await client.execute(
-    //     //     "sshpass -p 'Lucky' scp -r /opt/nimz/pix2surf/video.mp4 192.168.8.101:d:/Temp/Nimz_Proj/flutter/Elegeant_FitOn/assets/videos");
-    //     result = await client.execute(
-    //         "sshpass -p 'research@12' scp -r ${fp} 192.168.8.124:D:/Research/sizer/assets/videos/");
-    //     print("Loaded");
-    //   }
-    //   client.disconnect();
-    // } on PlatformException catch (e) {
-    //   print('Error: ${e.code}\nError Message: ${e.message}');
-    // }
-    //
-    print("inside...................................................");
-    // var postUri = Uri.parse("http://192.168.8.158:5000/pose_estimator");
-    // http.MultipartRequest request = new http.MultipartRequest("GET", postUri);
-    // http.MultipartFile multipartFile =
-    //     await http.MultipartFile.fromPath('image', fp);
-    // request.files.add(multipartFile);
-    // http.StreamedResponse response = await request.send();
-    // print(response.statusCode);
-    // var postUri = Uri.parse("http://192.168.8.158:5000/pose_estimator");
-    // var request = new http.MultipartRequest("POST", postUri);
-    // request.fields['user'] = 'someone@somewhere.com';
-    // // request.files.add(http.MultipartFile.fromPath('package', 'build/package.tar.gz', contentType: new MediaType('image', 'jpeg')));
-    // request.files.add(new http.MultipartFile.fromBytes(
-    //     'file', await File.fromUri(fp).readAsBytes(),
-    //     contentType: new MediaType('image', 'jpeg')));
-    // request.send().then((response) {
-    //   if (response.statusCode == 200) print("Uploaded!");
-    // });
-    // File file = new File(fp);
-    // String path = basename(file.path);
     String path = fp.toString();
     String? newqqq = path.split(":")?.last;
     String ello = newqqq!.substring(2, newqqq.length - 1);
-    // File(fp).readAsString().then((String contents) {
-    //   print("...............................this....................." +
-    //       contents);
-    // });
-    // String path = File(fp).uri.pathSegments.last;
-    // String path = fp.toString();
-    print("psth : " + path);
-    print("newqqq : " + newqqq!);
-    print("ello : " + ello);
+
+    // print("psth : " + path);
+    // print("newqqq : " + newqqq!);
+    // print("ello : " + ello);
     try {
-      print("charitha....................................");
+      // print("charitha....................................");
       print(fp);
       var formdata =
           FormData.fromMap({"image": await MultipartFile.fromFile(ello)});
-      print("middle....................................");
+      // print("middle....................................");
       var response = await Dio()
           .post('http://192.168.8.158:5000/pose_estimator', data: formdata);
       print(response);
-      print("lsls....................................");
+      print("Avatar creation Finished");
+      if (response != null) {
+        // print("Heloooooooooooooooooooooooooooooooooooooooo");
+      }
     } catch (e) {
       print(e);
       print("catch....................................");
     }
-    // var formData = FormData.fromMap({
-    //   'name': 'wendux',
-    //   'age': 25,
-    //   'file': await MultipartFile.fromFile('./text.txt', filename: 'upload.txt')
-    // });
-    // response = await Dio.post('/info', data: formData);
   }
-
-  // uploadFile() async {
-  //   try{
-  //     var url = 'http://192.168.8.158:5000/pose_estimator';
-  //     var request = new http.MultipartRequest("POST", url);
-  //   } catch(e){
-
-  //   }
-  // }
 
   Widget get _imageDetectionView => SingleChildScrollView(
         child: Center(
@@ -379,8 +323,20 @@ class _AvatarState extends State<Avatar> {
                     Padding(
                       padding: const EdgeInsets.only(left: 20),
                       child: OutlinedButton(
-                        onPressed: _resetState,
-                        child: const Text('Clear'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => msrnt('Male', 14, 34,
+                                  34), //myshoulderwidth, myhip, myleglength
+                              // builder: (context) =>  sitems('Male', 16, 32, 32),//myshoulderwidth, myhip, myleglength
+                              // builder: (context) =>  sitems('Male', 14, 34, 34),//myshoulderwidth, myhip, myleglength
+                              // builder: (context) =>  sitems('Male', 20, 36, 36),//myshoulderwidth, myhip, myleglength
+                              // builder: (context) =>  sitems('Female', 14, 32, 32),//myshoulderwidth, myhip, myleglength
+                            ),
+                          );
+                        },
+                        child: const Text('Next'),
                         style: OutlinedButton.styleFrom(
                           primary: Colors.white,
                           backgroundColor: Colors.teal,
@@ -448,6 +404,17 @@ class _AvatarState extends State<Avatar> {
           onTap: _onTabSelectTapped,
         ),
         body: _selectedTab,
+      ),
+    );
+  }
+
+  void _showToast(BuildContext context) {
+    final scaffold = ScaffoldMessenger.of(context);
+    scaffold.showSnackBar(
+      SnackBar(
+        content: const Text('Added to favorite'),
+        action: SnackBarAction(
+            label: 'UNDO', onPressed: scaffold.hideCurrentSnackBar),
       ),
     );
   }

@@ -1,4 +1,3 @@
-
 import 'package:elegant_fit_on/screens/3DAvatar/video.dart';
 import 'package:elegant_fit_on/screens/SplashScreen/splash_screen.dart';
 import 'package:flutter/material.dart';

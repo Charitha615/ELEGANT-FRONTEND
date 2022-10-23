@@ -61,7 +61,7 @@ class MyHomePage extends State {
   String largesize = 'tshirtFemale3large';
   MyHomePage(@required this.clothType, @required this.myshoulderwidth,
       @required this.myhip, @required this.myleglength);
-  
+
   final FlutterTts fluttertts = FlutterTts();
   speak(String vtext) async {
     debugPrint('Received Hello');
@@ -423,7 +423,9 @@ class MyHomePage extends State {
                             print(clothType);
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => shirts()),
+                              MaterialPageRoute(
+                                  builder: (context) => shirts(clothType,
+                                      myshoulderwidth, myhip, myleglength)),
                             );
                           } else if (clothType == 'shorts') {
                             print(clothType);

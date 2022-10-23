@@ -427,7 +427,7 @@ class MyHomePage extends State {
                             print(clothType);
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => shirts()),
+                              MaterialPageRoute(builder: (context) => shirts(clothType, myshoulderwidth, myhip, myleglength)),
                             );
                           } else if (clothType == 'shorts') {
                             print(clothType);

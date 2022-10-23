@@ -1,18 +1,28 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:io';
 
 import 'package:elegant_fit_on/components/Navibar.dart';
+import 'package:elegant_fit_on/screens/ClothesSelect/ShoppingItems.dart';
 import 'package:elegant_fit_on/screens/ClothesSelect/spnr.dart';
+import 'package:elegant_fit_on/screens/ClothesSelect/temp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ssh/ssh.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+import 'MaleSizeSelection.dart';
 import 'shirtoutput.dart';
 
 void reassemble() {}
 
 class shirts extends StatelessWidget {
-  const shirts({Key? key}) : super(key: key);
+  String clothType;
+  int myshoulderwidth;
+  int myhip;
+  int myleglength;
+  shirts(@required this.clothType, @required this.myshoulderwidth,
+      @required this.myhip, @required this.myleglength);
 
   // This widget is the root of your application.
   @override
@@ -22,18 +32,27 @@ class shirts extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: const MyHomePage(title: 'Elegant FitOn'),
+      home: Scaffold(
+          body: Center(
+        child: MyHomePage(clothType, myshoulderwidth, myhip, myleglength),
+      )),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  String clothType;
+  int myshoulderwidth;
+  int myhip;
+  int myleglength;
+  MyHomePage(@required this.clothType, @required this.myshoulderwidth,
+      @required this.myhip, @required this.myleglength);
 
-  final String title;
+  // final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePage> createState() =>
+      _MyHomePageState(clothType, myshoulderwidth, myhip, myleglength);
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -42,6 +61,12 @@ class _MyHomePageState extends State<MyHomePage> {
   String backendip = "192.168.8.129";
   bool isLoadingspnr = false;
   int shirtnum = 5;
+  String clothType;
+  int myshoulderwidth;
+  int myhip;
+  int myleglength;
+  _MyHomePageState(@required this.clothType, @required this.myshoulderwidth,
+      @required this.myhip, @required this.myleglength);
 
   Future<void> testtimer(int num) async {}
 
@@ -102,16 +127,46 @@ class _MyHomePageState extends State<MyHomePage> {
       ? spnr()
       : Scaffold(
           appBar: AppBar(
-            title: Text(widget.title),
+            title: Padding(
+              padding: const EdgeInsets.only(left: 70),
+              child: Text("ELEGANT FIT ON",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 195, 32, 221))),
+            ),
+            backgroundColor: Color.fromARGB(255, 247, 247, 247),
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(right: 50),
+                child: Container(
+                  //  alignment: Alignment.topRight,
+                  width: 80,
+                  child: Image.asset(
+                    'assets/images/Picture1.png',
+                  ),
+                ),
+              ),
+            ],
           ),
           body: Center(
             child: Container(
-              color: Color.fromARGB(255, 247, 247, 247),
+              // color: Color.fromARGB(255, 247, 247, 247),
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    // 'assets/images/Picture1.png',
+                    'assets/images/bk.jpg',
+                  ),
+                  fit: BoxFit.cover,
+                  opacity: 0.12,
+                  // child: Center(child: FlutterLogo(size: 300)),
+                ),
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.only(top: 20),
+                    padding: const EdgeInsets.only(top: 20, left: 0),
                     child: Row(
                       children: [
                         Expanded(
@@ -125,7 +180,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             setState(() => isLoadingspnr = false);
                           },
                           child: Image.asset(
-                            'assets/images/shirt0.jpg',
+                            'assets/images/clothes/shirt0.png',
+                            // 'assets/images/shirt0.jpg',
                             width: 180.0,
                             height: 180.0,
                           ),
@@ -141,7 +197,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             setState(() => isLoadingspnr = false);
                           },
                           child: Image.asset(
-                            'assets/images/shirt1.jpg',
+                            'assets/images/clothes/shirt1.png',
                             width: 180.0,
                             height: 180.0,
                           ),
@@ -162,7 +218,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           setState(() => isLoadingspnr = false);
                         },
                         child: Image.asset(
-                          'assets/images/shirt2.jpg',
+                          'assets/images/clothes/shirt2.png',
                           width: 180.0,
                           height: 180.0,
                         ),
@@ -178,7 +234,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           setState(() => isLoadingspnr = false);
                         },
                         child: Image.asset(
-                          'assets/images/shirt3.jpg',
+                          'assets/images/clothes/shirt3.png',
                           width: 180.0,
                           height: 180.0,
                         ),
@@ -198,7 +254,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           setState(() => isLoadingspnr = false);
                         },
                         child: Image.asset(
-                          'assets/images/shirt4.jpg',
+                          'assets/images/clothes/shirt4.png',
                           width: 180.0,
                           height: 180.0,
                         ),
@@ -215,7 +271,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           setState(() => isLoadingspnr = false);
                         },
                         child: Image.asset(
-                          'assets/images/shirt5.jpg',
+                          'assets/images/clothes/shirt5.png',
                           width: 180.0,
                           height: 180.0,
                         ),
@@ -223,7 +279,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 20),
+                    padding: const EdgeInsets.only(top: 10),
                     child: Row(
                       children: [
                         // Padding(
@@ -267,7 +323,31 @@ class _MyHomePageState extends State<MyHomePage> {
                         //   ),
                         // ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 10, left: 60),
+                          padding: const EdgeInsets.only(top: 0, left: 80),
+                          child: Container(
+                            height: 60.0,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => msizeselector(
+                                          clothType,
+                                          myshoulderwidth,
+                                          myhip,
+                                          myleglength)),
+                                );
+                              },
+                              child: Image.asset(
+                                'assets/images/previous.png',
+                                width: 70.0,
+                                height: 60.0,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 0, left: 30),
                           child: Container(
                             height: 50.0,
                             child: GestureDetector(
@@ -281,19 +361,20 @@ class _MyHomePageState extends State<MyHomePage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            VideoPlayerScreen(vs, shirtnum)));
+                                            // VideoPlayerScreen(vs, shirtnum)));
+                                            VideoScreen()));
                               },
                               child: Container(
                                 margin: EdgeInsets.only(top: 0),
                                 padding: EdgeInsets.only(left: 20, right: 20),
                                 alignment: Alignment.center,
                                 height: 30,
-                                width: 270,
+                                width: 130,
                                 decoration: BoxDecoration(
                                     gradient: LinearGradient(
                                       colors: [
-                                        new Color(0xFFDC54FE),
-                                        (new Color(0xFF246EE9)),
+                                        Color.fromARGB(211, 49, 106, 240),
+                                        (Color.fromARGB(255, 194, 83, 209)),
                                       ],
                                       begin: Alignment.centerLeft,
                                       end: Alignment.centerRight,
@@ -308,10 +389,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ]),
                                 child: Text(
                                   // "View".toUpperCase(),
-                                  "Process".toUpperCase(),
+                                  "Proceed".toUpperCase(),
                                   style: TextStyle(
                                       fontSize: 16,
-                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color.fromARGB(255, 0, 0, 0),
                                       fontFamily: 'RaleWay'),
                                 ),
                               ),

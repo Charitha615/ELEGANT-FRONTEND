@@ -9,9 +9,10 @@ import 'package:native_video_view/native_video_view.dart';
 class VideoPlayerScreen extends StatefulWidget {
   // const VideoPlayerScreen({Key? key}) : super(key: key);
   String vs;
-  VideoPlayerScreen(this.vs);
+  int num;
+  VideoPlayerScreen(this.vs, this.num);
   @override
-  VideoPlayerScreenState createState() => VideoPlayerScreenState(vs);
+  VideoPlayerScreenState createState() => VideoPlayerScreenState(vs, num);
 }
 
 class VideoPlayerScreenState extends State<VideoPlayerScreen> {
@@ -22,7 +23,8 @@ class VideoPlayerScreenState extends State<VideoPlayerScreen> {
   }
 
   String vsd;
-  VideoPlayerScreenState(@required this.vsd);
+  int snum;
+  VideoPlayerScreenState(@required this.vsd, @required this.snum);
   // String v1 = "This cloth is too tight for you";
 
   @override
@@ -37,10 +39,13 @@ class VideoPlayerScreenState extends State<VideoPlayerScreen> {
           keepAspectRatio: true,
           showMediaController: true,
           onCreated: (controller) {
+            String path = "assets/videos/Shirt" + snum.toString() + "Out.mp4";
             controller.setVideoSource(
-              'assets/videos/video.mp4',
+              // 'assets/videos/video.mp4',
+              path,
               sourceType: VideoSourceType.asset,
             );
+            print(path);
             speak(vsd);
           },
           onPrepared: (controller, info) {

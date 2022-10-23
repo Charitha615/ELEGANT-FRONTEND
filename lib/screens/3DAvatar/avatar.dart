@@ -233,18 +233,13 @@ class _AvatarState extends State<Avatar> {
 
   void avatercreate() async {
     String path = fp.toString();
-    String? newqqq = path.split(":")?.last;
-    String ello = newqqq!.substring(2, newqqq.length - 1);
+    String? newqqq = path.split(":").last;
+    String ello = newqqq.substring(2, newqqq.length - 1);
 
-    // print("psth : " + path);
-    // print("newqqq : " + newqqq!);
-    // print("ello : " + ello);
     try {
-      // print("charitha....................................");
       print(fp);
       var formdata =
           FormData.fromMap({"image": await MultipartFile.fromFile(ello)});
-      // print("middle....................................");
       var response = await Dio()
           .post('http://192.168.8.158:5000/pose_estimator', data: formdata);
       print(response);

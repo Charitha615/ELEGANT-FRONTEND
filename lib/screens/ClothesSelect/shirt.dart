@@ -1,11 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:io';
-
 import 'package:elegant_fit_on/components/Navibar.dart';
-import 'package:elegant_fit_on/screens/ClothesSelect/ShoppingItems.dart';
-import 'package:elegant_fit_on/screens/ClothesSelect/spnr.dart';
-import 'package:elegant_fit_on/screens/ClothesSelect/temp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ssh/ssh.dart';
@@ -13,6 +9,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'MaleSizeSelection.dart';
 import 'shirtoutput.dart';
+import 'spnr.dart';
+import 'ShoppingItems.dart';
 
 void reassemble() {}
 
@@ -33,9 +31,10 @@ class shirts extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
       ),
       home: Scaffold(
-          body: Center(
-        child: MyHomePage(clothType, myshoulderwidth, myhip, myleglength),
-      )),
+        body: Center(
+          child: MyHomePage(clothType, myshoulderwidth, myhip, myleglength),
+        ),
+      ),
     );
   }
 }
@@ -47,8 +46,6 @@ class MyHomePage extends StatefulWidget {
   int myleglength;
   MyHomePage(@required this.clothType, @required this.myshoulderwidth,
       @required this.myhip, @required this.myleglength);
-
-  // final String title;
 
   @override
   State<MyHomePage> createState() =>
@@ -68,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
   _MyHomePageState(@required this.clothType, @required this.myshoulderwidth,
       @required this.myhip, @required this.myleglength);
 
-  Future<void> testtimer(int num) async {}
+  // Future<void> testtimer(int num) async {}
 
   Future<void> imageprocess(int num) async {
     print("Connecting to backend...");
@@ -361,8 +358,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            // VideoPlayerScreen(vs, shirtnum)));
-                                            VideoScreen()));
+                                            VideoPlayerScreen(vs, shirtnum)));
+                                // VideoScreen()));
                               },
                               child: Container(
                                 margin: EdgeInsets.only(top: 0),

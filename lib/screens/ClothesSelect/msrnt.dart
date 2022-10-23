@@ -37,7 +37,27 @@ class _State extends State<msrnt> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Elegant FitOn'),
+          title: Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: Text("ELEGANT FIT ON",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    // fontFamily: 'League Gothic',
+                    color: Color.fromARGB(255, 195, 32, 221))),
+          ),
+          backgroundColor: Color.fromARGB(255, 247, 247, 247),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 55),
+              child: Container(
+                //  alignment: Alignment.topRight,
+                width: 80,
+                child: Image.asset(
+                  'assets/images/Picture1.png',
+                ),
+              ),
+            ),
+          ],
         ),
         body: Padding(
             padding: EdgeInsets.all(15),

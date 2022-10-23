@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cube/flutter_cube.dart';
 import 'MaleSizeSelection.dart';
 import 'FemaleSizeSelection.dart';
+import 'msrnt.dart';
 
 // void main() {
 //   runApp(new sitems('Male', 16, 24, 32));
@@ -54,21 +55,52 @@ class MyHomePage extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text("Elegant FitOn"),
-      // ),
+      appBar: AppBar(
+        title: Padding(
+          padding: const EdgeInsets.only(left: 70),
+          child: Text("ELEGANT FIT ON",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  // fontFamily: 'League Gothic',
+                  color: Color.fromARGB(255, 195, 32, 221))),
+        ),
+        backgroundColor: Color.fromARGB(255, 247, 247, 247),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 50),
+            child: Container(
+              //  alignment: Alignment.topRight,
+              width: 80,
+              child: Image.asset(
+                'assets/images/Picture1.png',
+              ),
+            ),
+          ),
+        ],
+      ),
       body: Center(
         child: Container(
-          color: Color.fromARGB(255, 255, 255, 255),
+          // color: Color.fromARGB(255, 255, 255, 255),
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                // 'assets/images/Picture1.png',
+                'assets/images/bk.jpg',
+              ),
+              fit: BoxFit.cover,
+              opacity: 0.12,
+              // child: Center(child: FlutterLogo(size: 300)),
+            ),
+          ),
           child: Column(
             children: <Widget>[
-              SizedBox(height: 50),
+              SizedBox(height: 10),
               SizedBox(
                 height: 40,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 10),
                   child: Text(
-                    "What to shop",
+                    "Category Selection",
                     style: TextStyle(
                         fontSize: 24,
                         // color: Color.fromARGB(255, 247, 50, 240),
@@ -137,15 +169,25 @@ class MyHomePage extends State {
                               }
                             },
                             child: Image.asset(
-                              'assets/images/MensShirts.jpg',
+                              'assets/images/clothes/ShirtsImage.png',
                               width: 180.0,
                               height: 180.0,
+                              // fit: BoxFit.cover,
                             ),
                           )),
+                          // Expanded(
+                          //   child: Text(
+                          //     'Text Message',
+                          //     style: TextStyle(
+                          //         color: Colors.white,
+                          //         fontWeight: FontWeight.bold,
+                          //         fontSize: 22.0),
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),
-                    SizedBox(height: 30),
+                    SizedBox(height: 10),
                     Row(
                       children: [
                         Expanded(
@@ -191,70 +233,100 @@ class MyHomePage extends State {
                             }
                           },
                           child: Image.asset(
-                            'assets/images/MensPants.jpg',
+                            'assets/images/clothes/pantsImage.png',
                             width: 180.0,
                             height: 180.0,
                           ),
                         )),
                       ],
                     ),
-                    SizedBox(height: 30),
+                    SizedBox(height: 10),
                     Row(
                       children: [
-                        Expanded(
-                            child: InkWell(
-                          onTap: () {
-                            print(mygender);
-                            if (mygender == 'Male') {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => msizeselector(
-                                        "shorts",
-                                        myshoulderwidth,
-                                        myhip,
-                                        myleglength)),
-                              );
-                            } else if (mygender == 'Female') {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => fsizeselector(
-                                        "shorts",
-                                        myshoulderwidth,
-                                        myhip,
-                                        myleglength)),
-                              );
-                            } else {
-                              // print('Gender error in the app');
-                              showDialog<String>(
-                                context: context,
-                                builder: (BuildContext context) => AlertDialog(
-                                  title: const Text('Gender Error'),
-                                  content: const Text(
-                                      'Gender error was found in the app'),
-                                  actions: <Widget>[
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.pop(context, 'Cancel'),
-                                      child: const Text('Cancel'),
-                                    ),
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.pop(context, 'OK'),
-                                      child: const Text('OK'),
-                                    ),
-                                  ],
+                        Padding(
+                          padding: const EdgeInsets.only(left: 40, top: 140),
+                          child: SizedBox(
+                            child: Expanded(
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => msrnt(
+                                            "Male",
+                                            myshoulderwidth,
+                                            myhip,
+                                            myleglength)),
+                                  );
+                                },
+                                child: Image.asset(
+                                  'assets/images/previous.png',
+                                  width: 60.0,
+                                  height: 50.0,
                                 ),
-                              );
-                            }
-                          },
-                          child: Image.asset(
-                            'assets/images/MensShorts.jpg',
-                            width: 180.0,
-                            height: 180.0,
+                              ),
+                            ),
                           ),
-                        )),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: Expanded(
+                            child: InkWell(
+                              onTap: () {
+                                print(mygender);
+                                if (mygender == 'Male') {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => msizeselector(
+                                            "shorts",
+                                            myshoulderwidth,
+                                            myhip,
+                                            myleglength)),
+                                  );
+                                } else if (mygender == 'Female') {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => fsizeselector(
+                                            "shorts",
+                                            myshoulderwidth,
+                                            myhip,
+                                            myleglength)),
+                                  );
+                                } else {
+                                  // print('Gender error in the app');
+                                  showDialog<String>(
+                                    context: context,
+                                    builder: (BuildContext context) =>
+                                        AlertDialog(
+                                      title: const Text('Gender Error'),
+                                      content: const Text(
+                                          'Gender error was found in the app'),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(context, 'Cancel'),
+                                          child: const Text('Cancel'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(context, 'OK'),
+                                          child: const Text('OK'),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                }
+                              },
+                              child: Image.asset(
+                                'assets/images/clothes/ShortsImage.png',
+                                width: 180.0,
+                                height: 180.0,
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ],

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -9,9 +11,10 @@ import 'package:native_video_view/native_video_view.dart';
 class VideoPlayerScreen extends StatefulWidget {
   // const VideoPlayerScreen({Key? key}) : super(key: key);
   String vs;
-  VideoPlayerScreen(this.vs);
+  int num;
+  VideoPlayerScreen(this.vs, this.num);
   @override
-  VideoPlayerScreenState createState() => VideoPlayerScreenState(vs);
+  VideoPlayerScreenState createState() => VideoPlayerScreenState(vs, num);
 }
 
 class VideoPlayerScreenState extends State<VideoPlayerScreen> {
@@ -22,23 +25,47 @@ class VideoPlayerScreenState extends State<VideoPlayerScreen> {
   }
 
   String vsd;
-  VideoPlayerScreenState(@required this.vsd);
+   int snum;
+  VideoPlayerScreenState(@required this.vsd, @required this.snum);
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Elegant FitOn'),
-      ),
+            title: Padding(
+              padding: const EdgeInsets.only(left: 70),
+              child: Text("ELEGANT FIT ON",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 195, 32, 221))),
+            ),
+            backgroundColor: Color.fromARGB(255, 247, 247, 247),
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(right: 50),
+                child: Container(
+                  //  alignment: Alignment.topRight,
+                  width: 80,
+                  child: Image.asset(
+                    'assets/images/Picture1.png',
+                  ),
+                ),
+              ),
+            ],
+          ),
       body: Container(
         alignment: Alignment.center,
         child: NativeVideoView(
           keepAspectRatio: true,
           showMediaController: true,
           onCreated: (controller) {
+            String path = "assets/videos/Short" + snum.toString() + "Out.mp4";
             controller.setVideoSource(
-              'assets/videos/video.mp4',
+              // 'assets/videos/video.mp4',
+              path,
               sourceType: VideoSourceType.asset,
             );
+            print(path);
             speak(vsd);
           },
           onPrepared: (controller, info) {

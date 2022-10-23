@@ -1,15 +1,27 @@
-import 'dart:io';
+// ignore_for_file: prefer_const_constructors
 
+import 'dart:io';
+import 'package:elegant_fit_on/components/Navibar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ssh/ssh.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+import 'MaleSizeSelection.dart';
 import 'pantoutput.dart';
+import 'spnr.dart';
+import 'ShoppingItems.dart';
 
 void reassemble() {}
 
 class pants extends StatelessWidget {
-  const pants({Key? key}) : super(key: key);
+  String clothType;
+  int myshoulderwidth;
+  int myhip;
+  int myleglength;
+  pants(@required this.clothType, @required this.myshoulderwidth,
+      @required this.myhip, @required this.myleglength);
+
 
   // This widget is the root of your application.
   @override
@@ -19,24 +31,39 @@ class pants extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: const MyHomePage(title: 'Elegant FitOn'),
+      home: Scaffold(
+        body: Center(
+          child: MyHomePage(clothType, myshoulderwidth, myhip, myleglength),
+        ),
+      ),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+  String clothType;
+  int myshoulderwidth;
+  int myhip;
+  int myleglength;
+  MyHomePage(@required this.clothType, @required this.myshoulderwidth,
+      @required this.myhip, @required this.myleglength);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState(clothType, myshoulderwidth, myhip, myleglength);
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String _result = '';
   String backendip = "192.168.8.129";
+  bool isLoadingspnr = false;
+  int pantnum = 5;
+  String clothType;
+  int myshoulderwidth;
+  int myhip;
+  int myleglength;
+  _MyHomePageState(@required this.clothType, @required this.myshoulderwidth,
+      @required this.myhip, @required this.myleglength);
 
   Future<void> imageprocess(int num) async {
     print("Connecting to backend...");
@@ -88,14 +115,45 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+  Widget build(BuildContext context) => isLoadingspnr
+      ? spnr()
+      : Scaffold(
+          appBar: AppBar(
+            title: Padding(
+              padding: const EdgeInsets.only(left: 70),
+              child: Text("ELEGANT FIT ON",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 195, 32, 221))),
+            ),
+            backgroundColor: Color.fromARGB(255, 247, 247, 247),
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(right: 50),
+                child: Container(
+                  //  alignment: Alignment.topRight,
+                  width: 80,
+                  child: Image.asset(
+                    'assets/images/Picture1.png',
+                  ),
+                ),
+              ),
+            ],
+          ),
       body: Center(
         child: Container(
-          color: Color.fromARGB(255, 247, 247, 247),
+          // color: Color.fromARGB(255, 247, 247, 247),
+          decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    // 'assets/images/Picture1.png',
+                    'assets/images/bk.jpg',
+                  ),
+                  fit: BoxFit.cover,
+                  opacity: 0.12,
+                  // child: Center(child: FlutterLogo(size: 300)),
+                ),
+              ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -105,24 +163,32 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     Expanded(
                         child: InkWell(
-                      onTap: () {
+                      onTap: () async {
                         print('Adding the pant...');
-                        imageprocess(0);
+                        // imageprocess(0);
+                        pantnum = 0;
+                            setState(() => isLoadingspnr = true);
+                            await Future.delayed(const Duration(seconds: 3));
+                            setState(() => isLoadingspnr = false);
                       },
                       child: Image.asset(
-                        'assets/images/pant0.jpg',
+                        'assets/images/clothes/pant0.png',
                         width: 180.0,
                         height: 180.0,
                       ),
                     )),
                     Expanded(
                         child: InkWell(
-                      onTap: () {
+                      onTap: () async {
                         print('Adding the pant...');
-                        imageprocess(1);
+                        // imageprocess(1);
+                        pantnum = 1;
+                            setState(() => isLoadingspnr = true);
+                            await Future.delayed(const Duration(seconds: 3));
+                            setState(() => isLoadingspnr = false);
                       },
                       child: Image.asset(
-                        'assets/images/pant1.jpg',
+                        'assets/images/clothes/pant1.png',
                         width: 180.0,
                         height: 180.0,
                       ),
@@ -134,24 +200,32 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   Expanded(
                       child: InkWell(
-                    onTap: () {
+                    onTap: () async {
                       print('Adding the pant...');
-                      imageprocess(2);
+                      // imageprocess(2);
+                        pantnum = 2;
+                            setState(() => isLoadingspnr = true);
+                            await Future.delayed(const Duration(seconds: 3));
+                            setState(() => isLoadingspnr = false);
                     },
                     child: Image.asset(
-                      'assets/images/pant2.jpg',
+                      'assets/images/clothes/pant2.png',
                       width: 180.0,
                       height: 180.0,
                     ),
                   )),
                   Expanded(
                       child: InkWell(
-                    onTap: () {
+                    onTap: () async {
                       print('Adding the pant...');
-                      imageprocess(3);
+                      // imageprocess(3);
+                        pantnum = 3;
+                            setState(() => isLoadingspnr = true);
+                            await Future.delayed(const Duration(seconds: 3));
+                            setState(() => isLoadingspnr = false);
                     },
                     child: Image.asset(
-                      'assets/images/pant3.jpg',
+                      'assets/images/clothes/pant3.png',
                       width: 180.0,
                       height: 180.0,
                     ),
@@ -162,24 +236,32 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   Expanded(
                       child: InkWell(
-                    onTap: () {
+                    onTap: () async {
                       print('Adding the pant...');
-                      imageprocess(4);
+                      // imageprocess(4);
+                        pantnum = 4;
+                            setState(() => isLoadingspnr = true);
+                            await Future.delayed(const Duration(seconds: 3));
+                            setState(() => isLoadingspnr = false);
                     },
                     child: Image.asset(
-                      'assets/images/pant4.jpg',
+                      'assets/images/clothes/pant4.png',
                       width: 180.0,
                       height: 180.0,
                     ),
                   )),
                   Expanded(
                       child: InkWell(
-                    onTap: () {
+                    onTap: () async {
                       print('Adding the pant...');
-                      imageprocess(5);
+                      // imageprocess(5);
+                        pantnum = 5;
+                            setState(() => isLoadingspnr = true);
+                            await Future.delayed(const Duration(seconds: 3));
+                            setState(() => isLoadingspnr = false);
                     },
                     child: Image.asset(
-                      'assets/images/pant5.jpg',
+                      'assets/images/clothes/pant5.png',
                       width: 180.0,
                       height: 180.0,
                     ),
@@ -190,55 +272,74 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.only(top: 20),
                 child: Row(
                   children: [
-            
+                    // Padding(
+                    //   padding: const EdgeInsets.only(top: 10, left: 50),
+                    //   child: Container(
+                    //     height: 50.0,
+                    //     child: GestureDetector(
+                    //       onTap: videoretrieve,
+                    //       child: Container(
+                    //         margin: EdgeInsets.only(top: 0),
+                    //         padding: EdgeInsets.only(left: 20, right: 20),
+                    //         alignment: Alignment.center,
+                    //         height: 30,
+                    //         width: 120,
+                    //         decoration: BoxDecoration(
+                    //             gradient: LinearGradient(
+                    //               colors: [
+                    //                 new Color(0xFFDC54FE),
+                    //                 (new Color(0xFF246EE9)),
+                    //               ],
+                    //               begin: Alignment.centerLeft,
+                    //               end: Alignment.centerRight,
+                    //             ),
+                    //             borderRadius: BorderRadius.circular(50),
+                    //             boxShadow: [
+                    //               (BoxShadow(
+                    //                 offset: Offset(0, 10),
+                    //                 blurRadius: 50,
+                    //                 color: Color(0xffEEEEEE),
+                    //               ))
+                    //             ]),
+                    //         child: Text(
+                    //           "Process".toUpperCase(),
+                    //           style: TextStyle(
+                    //             fontSize: 15,
+                    //             color: Colors.white,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 10, left: 50),
-                      child: Container(
-                        height: 50.0,
-             
-                        child: GestureDetector(
-                          onTap: videoretrieve,
+                          padding: const EdgeInsets.only(top: 0, left: 80),
                           child: Container(
-                            margin: EdgeInsets.only(top: 0),
-                            padding: EdgeInsets.only(left: 20, right: 20),
-                            alignment: Alignment.center,
-                            height: 30,
-                            width: 120,
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    new Color(0xFFDC54FE),
-                                    (new Color(0xFF246EE9)),
-                                  ],
-                                  begin: Alignment.centerLeft,
-                                  end: Alignment.centerRight,
-                                ),
-                                borderRadius: BorderRadius.circular(50),
-                                boxShadow: [
-                                  (BoxShadow(
-                                    offset: Offset(0, 10),
-                                    blurRadius: 50,
-                                    color: Color(0xffEEEEEE),
-                                  ))
-                                ]),
-                            child: Text(
-                              "Process".toUpperCase(),
-                              style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.white,
+                            height: 60.0,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => msizeselector(
+                                          clothType,
+                                          myshoulderwidth,
+                                          myhip,
+                                          myleglength)),
+                                );
+                              },
+                              child: Image.asset(
+                                'assets/images/previous.png',
+                                width: 70.0,
+                                height: 60.0,
                               ),
                             ),
                           ),
                         ),
-                       
-                      ),
-                    ),
-                 
                     Padding(
                       padding: const EdgeInsets.only(top: 10, left: 60),
                       child: Container(
                         height: 50.0,
-                 
                         child: GestureDetector(
                           onTap: () {
                             String vs =
@@ -249,7 +350,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        VideoPlayerScreen(vs)));
+                                        VideoPlayerScreen(vs, pantnum)));
                           },
                           child: Container(
                             margin: EdgeInsets.only(top: 0),
@@ -260,8 +361,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: [
-                                    new Color(0xFFDC54FE),
-                                    (new Color(0xFF246EE9)),
+                                    Color.fromARGB(211, 49, 106, 240),
+                                        (Color.fromARGB(255, 194, 83, 209)),
                                   ],
                                   begin: Alignment.centerLeft,
                                   end: Alignment.centerRight,
@@ -275,15 +376,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ))
                                 ]),
                             child: Text(
-                              "View".toUpperCase(),
+                              // "View".toUpperCase(),
+                                  "Proceed".toUpperCase(),
                               style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.white,
-                              ),
-                            ),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color.fromARGB(255, 0, 0, 0),
+                                      fontFamily: 'RaleWay'),
+                                ),
                           ),
                         ),
-                        
                       ),
                     ),
                   ],
@@ -295,4 +397,3 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-}

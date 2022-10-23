@@ -431,12 +431,15 @@ class MyHomePage extends State {
                             print(clothType);
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => shorts()),
+                              MaterialPageRoute(
+                                  builder: (context) => shorts(clothType,
+                                      myshoulderwidth, myhip, myleglength)),
                             );
                           } else if (clothType == 'pants') {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => pants()),
+                              MaterialPageRoute(builder: (context) => pants(clothType,
+                                      myshoulderwidth, myhip, myleglength)),
                             );
                           }
                         },

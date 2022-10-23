@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -31,7 +33,26 @@ class VideoPlayerScreenState extends State<VideoPlayerScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Elegant FitOn'),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 70),
+          child: Text("ELEGANT FIT ON",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 195, 32, 221))),
+        ),
+        backgroundColor: Color.fromARGB(255, 247, 247, 247),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 50),
+            child: Container(
+              //  alignment: Alignment.topRight,
+              width: 80,
+              child: Image.asset(
+                'assets/images/Picture1.png',
+              ),
+            ),
+          ),
+        ],
       ),
       body: Container(
         alignment: Alignment.center,

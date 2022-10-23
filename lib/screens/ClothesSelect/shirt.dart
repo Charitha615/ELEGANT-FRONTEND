@@ -357,8 +357,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            VideoPlayerScreen(vs, shirtnum)));
+                                        builder: (context) => VideoPlayerScreen(
+                                            vs,
+                                            shirtnum,
+                                            clothType,
+                                            myshoulderwidth,
+                                            myhip,
+                                            myleglength)));
                                 // VideoScreen()));
                               },
                               child: Container(

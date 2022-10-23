@@ -22,7 +22,6 @@ class pants extends StatelessWidget {
   pants(@required this.clothType, @required this.myshoulderwidth,
       @required this.myhip, @required this.myleglength);
 
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -49,7 +48,8 @@ class MyHomePage extends StatefulWidget {
       @required this.myhip, @required this.myleglength);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState(clothType, myshoulderwidth, myhip, myleglength);
+  State<MyHomePage> createState() =>
+      _MyHomePageState(clothType, myshoulderwidth, myhip, myleglength);
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -140,10 +140,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
-      body: Center(
-        child: Container(
-          // color: Color.fromARGB(255, 247, 247, 247),
-          decoration: const BoxDecoration(
+          body: Center(
+            child: Container(
+              // color: Color.fromARGB(255, 247, 247, 247),
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
                     // 'assets/images/Picture1.png',
@@ -154,165 +154,165 @@ class _MyHomePageState extends State<MyHomePage> {
                   // child: Center(child: FlutterLogo(size: 300)),
                 ),
               ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: Row(
-                  children: [
-                    Expanded(
-                        child: InkWell(
-                      onTap: () async {
-                        print('Adding the pant...');
-                        // imageprocess(0);
-                        pantnum = 0;
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Row(
+                      children: [
+                        Expanded(
+                            child: InkWell(
+                          onTap: () async {
+                            print('Adding the pant...');
+                            // imageprocess(0);
+                            pantnum = 0;
                             setState(() => isLoadingspnr = true);
                             await Future.delayed(const Duration(seconds: 3));
                             setState(() => isLoadingspnr = false);
-                      },
-                      child: Image.asset(
-                        'assets/images/clothes/pant0.png',
-                        width: 180.0,
-                        height: 180.0,
-                      ),
-                    )),
-                    Expanded(
-                        child: InkWell(
-                      onTap: () async {
-                        print('Adding the pant...');
-                        // imageprocess(1);
-                        pantnum = 1;
+                          },
+                          child: Image.asset(
+                            'assets/images/clothes/pant0.png',
+                            width: 180.0,
+                            height: 180.0,
+                          ),
+                        )),
+                        Expanded(
+                            child: InkWell(
+                          onTap: () async {
+                            print('Adding the pant...');
+                            // imageprocess(1);
+                            pantnum = 1;
                             setState(() => isLoadingspnr = true);
                             await Future.delayed(const Duration(seconds: 3));
                             setState(() => isLoadingspnr = false);
-                      },
-                      child: Image.asset(
-                        'assets/images/clothes/pant1.png',
-                        width: 180.0,
-                        height: 180.0,
-                      ),
-                    )),
-                  ],
-                ),
-              ),
-              Row(
-                children: [
-                  Expanded(
-                      child: InkWell(
-                    onTap: () async {
-                      print('Adding the pant...');
-                      // imageprocess(2);
-                        pantnum = 2;
-                            setState(() => isLoadingspnr = true);
-                            await Future.delayed(const Duration(seconds: 3));
-                            setState(() => isLoadingspnr = false);
-                    },
-                    child: Image.asset(
-                      'assets/images/clothes/pant2.png',
-                      width: 180.0,
-                      height: 180.0,
+                          },
+                          child: Image.asset(
+                            'assets/images/clothes/pant1.png',
+                            width: 180.0,
+                            height: 180.0,
+                          ),
+                        )),
+                      ],
                     ),
-                  )),
-                  Expanded(
-                      child: InkWell(
-                    onTap: () async {
-                      print('Adding the pant...');
-                      // imageprocess(3);
-                        pantnum = 3;
-                            setState(() => isLoadingspnr = true);
-                            await Future.delayed(const Duration(seconds: 3));
-                            setState(() => isLoadingspnr = false);
-                    },
-                    child: Image.asset(
-                      'assets/images/clothes/pant3.png',
-                      width: 180.0,
-                      height: 180.0,
-                    ),
-                  )),
-                ],
-              ),
-              Row(
-                children: [
-                  Expanded(
-                      child: InkWell(
-                    onTap: () async {
-                      print('Adding the pant...');
-                      // imageprocess(4);
-                        pantnum = 4;
-                            setState(() => isLoadingspnr = true);
-                            await Future.delayed(const Duration(seconds: 3));
-                            setState(() => isLoadingspnr = false);
-                    },
-                    child: Image.asset(
-                      'assets/images/clothes/pant4.png',
-                      width: 180.0,
-                      height: 180.0,
-                    ),
-                  )),
-                  Expanded(
-                      child: InkWell(
-                    onTap: () async {
-                      print('Adding the pant...');
-                      // imageprocess(5);
-                        pantnum = 5;
-                            setState(() => isLoadingspnr = true);
-                            await Future.delayed(const Duration(seconds: 3));
-                            setState(() => isLoadingspnr = false);
-                    },
-                    child: Image.asset(
-                      'assets/images/clothes/pant5.png',
-                      width: 180.0,
-                      height: 180.0,
-                    ),
-                  )),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: Row(
-                  children: [
-                    // Padding(
-                    //   padding: const EdgeInsets.only(top: 10, left: 50),
-                    //   child: Container(
-                    //     height: 50.0,
-                    //     child: GestureDetector(
-                    //       onTap: videoretrieve,
-                    //       child: Container(
-                    //         margin: EdgeInsets.only(top: 0),
-                    //         padding: EdgeInsets.only(left: 20, right: 20),
-                    //         alignment: Alignment.center,
-                    //         height: 30,
-                    //         width: 120,
-                    //         decoration: BoxDecoration(
-                    //             gradient: LinearGradient(
-                    //               colors: [
-                    //                 new Color(0xFFDC54FE),
-                    //                 (new Color(0xFF246EE9)),
-                    //               ],
-                    //               begin: Alignment.centerLeft,
-                    //               end: Alignment.centerRight,
-                    //             ),
-                    //             borderRadius: BorderRadius.circular(50),
-                    //             boxShadow: [
-                    //               (BoxShadow(
-                    //                 offset: Offset(0, 10),
-                    //                 blurRadius: 50,
-                    //                 color: Color(0xffEEEEEE),
-                    //               ))
-                    //             ]),
-                    //         child: Text(
-                    //           "Process".toUpperCase(),
-                    //           style: TextStyle(
-                    //             fontSize: 15,
-                    //             color: Colors.white,
-                    //           ),
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
-                    Padding(
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                          child: InkWell(
+                        onTap: () async {
+                          print('Adding the pant...');
+                          // imageprocess(2);
+                          pantnum = 2;
+                          setState(() => isLoadingspnr = true);
+                          await Future.delayed(const Duration(seconds: 3));
+                          setState(() => isLoadingspnr = false);
+                        },
+                        child: Image.asset(
+                          'assets/images/clothes/pant2.png',
+                          width: 180.0,
+                          height: 180.0,
+                        ),
+                      )),
+                      Expanded(
+                          child: InkWell(
+                        onTap: () async {
+                          print('Adding the pant...');
+                          // imageprocess(3);
+                          pantnum = 3;
+                          setState(() => isLoadingspnr = true);
+                          await Future.delayed(const Duration(seconds: 3));
+                          setState(() => isLoadingspnr = false);
+                        },
+                        child: Image.asset(
+                          'assets/images/clothes/pant3.png',
+                          width: 180.0,
+                          height: 180.0,
+                        ),
+                      )),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                          child: InkWell(
+                        onTap: () async {
+                          print('Adding the pant...');
+                          // imageprocess(4);
+                          pantnum = 4;
+                          setState(() => isLoadingspnr = true);
+                          await Future.delayed(const Duration(seconds: 3));
+                          setState(() => isLoadingspnr = false);
+                        },
+                        child: Image.asset(
+                          'assets/images/clothes/pant4.png',
+                          width: 180.0,
+                          height: 180.0,
+                        ),
+                      )),
+                      Expanded(
+                          child: InkWell(
+                        onTap: () async {
+                          print('Adding the pant...');
+                          // imageprocess(5);
+                          pantnum = 5;
+                          setState(() => isLoadingspnr = true);
+                          await Future.delayed(const Duration(seconds: 3));
+                          setState(() => isLoadingspnr = false);
+                        },
+                        child: Image.asset(
+                          'assets/images/clothes/pant5.png',
+                          width: 180.0,
+                          height: 180.0,
+                        ),
+                      )),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Row(
+                      children: [
+                        // Padding(
+                        //   padding: const EdgeInsets.only(top: 10, left: 50),
+                        //   child: Container(
+                        //     height: 50.0,
+                        //     child: GestureDetector(
+                        //       onTap: videoretrieve,
+                        //       child: Container(
+                        //         margin: EdgeInsets.only(top: 0),
+                        //         padding: EdgeInsets.only(left: 20, right: 20),
+                        //         alignment: Alignment.center,
+                        //         height: 30,
+                        //         width: 120,
+                        //         decoration: BoxDecoration(
+                        //             gradient: LinearGradient(
+                        //               colors: [
+                        //                 new Color(0xFFDC54FE),
+                        //                 (new Color(0xFF246EE9)),
+                        //               ],
+                        //               begin: Alignment.centerLeft,
+                        //               end: Alignment.centerRight,
+                        //             ),
+                        //             borderRadius: BorderRadius.circular(50),
+                        //             boxShadow: [
+                        //               (BoxShadow(
+                        //                 offset: Offset(0, 10),
+                        //                 blurRadius: 50,
+                        //                 color: Color(0xffEEEEEE),
+                        //               ))
+                        //             ]),
+                        //         child: Text(
+                        //           "Process".toUpperCase(),
+                        //           style: TextStyle(
+                        //             fontSize: 15,
+                        //             color: Colors.white,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
+                        Padding(
                           padding: const EdgeInsets.only(top: 0, left: 80),
                           child: Container(
                             height: 60.0,
@@ -336,64 +336,69 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                         ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10, left: 60),
-                      child: Container(
-                        height: 50.0,
-                        child: GestureDetector(
-                          onTap: () {
-                            String vs =
-                                "You have selected a pant and it fits for you.";
-                            // debugPrint('Received Process');
-                            reassemble();
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        VideoPlayerScreen(vs, pantnum)));
-                          },
+                        Padding(
+                          padding: const EdgeInsets.only(top: 0, left: 30),
                           child: Container(
-                            margin: EdgeInsets.only(top: 0),
-                            padding: EdgeInsets.only(left: 20, right: 20),
-                            alignment: Alignment.center,
-                            height: 30,
-                            width: 100,
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Color.fromARGB(211, 49, 106, 240),
+                            height: 50.0,
+                            child: GestureDetector(
+                              onTap: () {
+                                String vs =
+                                    "You have selected a pant and it fits for you.";
+                                // debugPrint('Received Process');
+                                reassemble();
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => VideoPlayerScreen(
+                                            vs,
+                                            pantnum,
+                                            clothType,
+                                            myshoulderwidth,
+                                            myhip,
+                                            myleglength)));
+                              },
+                              child: Container(
+                                margin: EdgeInsets.only(top: 0),
+                                padding: EdgeInsets.only(left: 20, right: 20),
+                                alignment: Alignment.center,
+                                height: 30,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Color.fromARGB(211, 49, 106, 240),
                                         (Color.fromARGB(255, 194, 83, 209)),
-                                  ],
-                                  begin: Alignment.centerLeft,
-                                  end: Alignment.centerRight,
-                                ),
-                                borderRadius: BorderRadius.circular(50),
-                                boxShadow: [
-                                  (BoxShadow(
-                                    offset: Offset(0, 10),
-                                    blurRadius: 50,
-                                    color: Color(0xffEEEEEE),
-                                  ))
-                                ]),
-                            child: Text(
-                              // "View".toUpperCase(),
+                                      ],
+                                      begin: Alignment.centerLeft,
+                                      end: Alignment.centerRight,
+                                    ),
+                                    borderRadius: BorderRadius.circular(50),
+                                    boxShadow: [
+                                      (BoxShadow(
+                                        offset: Offset(0, 10),
+                                        blurRadius: 50,
+                                        color: Color(0xffEEEEEE),
+                                      ))
+                                    ]),
+                                child: Text(
+                                  // "View".toUpperCase(),
                                   "Proceed".toUpperCase(),
-                              style: TextStyle(
+                                  style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
                                       color: Color.fromARGB(255, 0, 0, 0),
                                       fontFamily: 'RaleWay'),
                                 ),
+                              ),
+                            ),
                           ),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
-                ),
-              )
-            ],
+                  )
+                ],
+              ),
+            ),
           ),
-        ),
-      ),
-    );
-  }
+        );
+}

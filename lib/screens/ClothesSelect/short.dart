@@ -336,7 +336,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 10, left: 60),
+                          padding: const EdgeInsets.only(top: 0, left: 30),
                           child: Container(
                             height: 50.0,
                             child: GestureDetector(
@@ -349,14 +349,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            VideoPlayerScreen(vs, shortnum)));
+                                            VideoPlayerScreen(vs, shortnum, clothType, myshoulderwidth, myhip, myleglength)));
                               },
                               child: Container(
                                 margin: EdgeInsets.only(top: 0),
                                 padding: EdgeInsets.only(left: 20, right: 20),
                                 alignment: Alignment.center,
                                 height: 30,
-                                width: 100,
+                                width: 130,
                                 decoration: BoxDecoration(
                                     gradient: LinearGradient(
                                       colors: [

@@ -233,8 +233,8 @@ class _AvatarState extends State<Avatar> {
 
   void avatercreate() async {
     String path = fp.toString();
-    String? newqqq = path.split(":")?.last;
-    String ello = newqqq!.substring(2, newqqq.length - 1);
+    String? newqqq = path.split(":").last;
+    String ello = newqqq.substring(2, newqqq.length - 1);
 
     // print("psth : " + path);
     // print("newqqq : " + newqqq!);

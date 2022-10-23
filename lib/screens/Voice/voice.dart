@@ -19,7 +19,26 @@ class VoicePage extends StatelessWidget {
       home: Scaffold(
         // backgroundColor: Color(0xffAB8EE4),
         appBar: AppBar(
-          title: Text("Voice Generator"),
+          title: Padding(
+            padding: const EdgeInsets.only(left: 70),
+            child: Text("ELEGANT FIT ON",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 195, 32, 221))),
+          ),
+          backgroundColor: Color.fromARGB(255, 247, 247, 247),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 50),
+              child: Container(
+                //  alignment: Alignment.topRight,
+                width: 80,
+                child: Image.asset(
+                  'assets/images/Picture1.png',
+                ),
+              ),
+            ),
+          ],
         ),
         body: MyApps(),
         // bottomNavigationBar:

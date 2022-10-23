@@ -260,7 +260,7 @@ class _AvatarState extends State<Avatar> {
               Container(
                 child: OutlinedButton(
                   onPressed: _selectImage,
-                  child: const Text('Select image'),
+                  child: const Text('Open Gallery'),
                   style: OutlinedButton.styleFrom(
                     primary: Colors.white,
                     backgroundColor: Colors.teal,
@@ -382,7 +382,26 @@ class _AvatarState extends State<Avatar> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Body Detection Plugin Example App'),
+          title: Padding(
+            padding: const EdgeInsets.only(left: 70),
+            child: Text("ELEGANT FIT ON",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 195, 32, 221))),
+          ),
+          backgroundColor: Color.fromARGB(255, 247, 247, 247),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 50),
+              child: Container(
+                //  alignment: Alignment.topRight,
+                width: 80,
+                child: Image.asset(
+                  'assets/images/Picture1.png',
+                ),
+              ),
+            ),
+          ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[

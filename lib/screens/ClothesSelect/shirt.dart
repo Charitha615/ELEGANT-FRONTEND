@@ -117,8 +117,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         Expanded(
                             child: InkWell(
                           onTap: () async {
-                            print('Adding the Shirt...');
-                            imageprocess(0);
+                            // print('Adding the Shirt...');
+                            // imageprocess(0);
                             shirtnum = 0;
                             setState(() => isLoadingspnr = true);
                             await Future.delayed(const Duration(seconds: 3));
@@ -133,8 +133,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         Expanded(
                             child: InkWell(
                           onTap: () async {
-                            print('Adding the Shirt...');
-                            imageprocess(1);
+                            // print('Adding the Shirt...');
+                            // imageprocess(1);
                             shirtnum = 1;
                             setState(() => isLoadingspnr = true);
                             await Future.delayed(const Duration(seconds: 3));
@@ -154,8 +154,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       Expanded(
                           child: InkWell(
                         onTap: () async {
-                          print('Adding the Shirt...');
-                          imageprocess(2);
+                          // print('Adding the Shirt...');
+                          // imageprocess(2);
                           shirtnum = 2;
                           setState(() => isLoadingspnr = true);
                           await Future.delayed(const Duration(seconds: 3));
@@ -170,8 +170,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       Expanded(
                           child: InkWell(
                         onTap: () async {
-                          print('Adding the Shirt...');
-                          imageprocess(3);
+                          // print('Adding the Shirt...');
+                          // imageprocess(3);
                           shirtnum = 3;
                           setState(() => isLoadingspnr = true);
                           await Future.delayed(const Duration(seconds: 3));
@@ -288,7 +288,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 padding: EdgeInsets.only(left: 20, right: 20),
                                 alignment: Alignment.center,
                                 height: 30,
-                                width: 100,
+                                width: 270,
                                 decoration: BoxDecoration(
                                     gradient: LinearGradient(
                                       colors: [
@@ -307,11 +307,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ))
                                     ]),
                                 child: Text(
-                                  "View".toUpperCase(),
+                                  // "View".toUpperCase(),
+                                  "Process".toUpperCase(),
                                   style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                  ),
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                      fontFamily: 'RaleWay'),
                                 ),
                               ),
                             ),

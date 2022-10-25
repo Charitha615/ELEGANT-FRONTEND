@@ -157,7 +157,7 @@ class MyHomePage extends State {
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   // fontFamily: 'League Gothic',
-                  color: Color.fromARGB(255, 195, 32, 221))),
+                  color: Color.fromARGB(255, 181, 10, 224))),
         ),
         backgroundColor: Color.fromARGB(255, 247, 247, 247),
         actions: [
@@ -235,7 +235,7 @@ class MyHomePage extends State {
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
                             ),
-                            borderRadius: BorderRadius.circular(50),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               (BoxShadow(
                                 offset: Offset(0, 10),
@@ -286,7 +286,7 @@ class MyHomePage extends State {
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
                             ),
-                            borderRadius: BorderRadius.circular(50),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               (BoxShadow(
                                 offset: Offset(0, 10),
@@ -337,7 +337,7 @@ class MyHomePage extends State {
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
                             ),
-                            borderRadius: BorderRadius.circular(50),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               (BoxShadow(
                                 offset: Offset(0, 10),
@@ -354,8 +354,8 @@ class MyHomePage extends State {
                               color: Colors.white,
                             ),
                           ),
-                          color: Color.fromARGB(255, 46, 14, 226)
-                              .withOpacity(0.01),
+                          color:
+                              Color.fromARGB(255, 9, 24, 230).withOpacity(0.01),
                           onPressed: () {
                             showDialog(
                               context: context,
@@ -477,13 +477,15 @@ class MyHomePage extends State {
                             print(clothType);
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => shorts(clothType,
+                              MaterialPageRoute(
+                                  builder: (context) => shorts(clothType,
                                       myshoulderwidth, myhip, myleglength)),
                             );
                           } else if (clothType == 'pants') {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => pants(clothType,
+                              MaterialPageRoute(
+                                  builder: (context) => pants(clothType,
                                       myshoulderwidth, myhip, myleglength)),
                             );
                           }
@@ -508,7 +510,7 @@ class MyHomePage extends State {
   final Shader linearGradient = LinearGradient(
     colors: <Color>[
       Color.fromARGB(255, 8, 12, 240),
-      Color.fromARGB(255, 195, 32, 221)
+      Color.fromARGB(255, 181, 10, 224)
     ],
   ).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
 

@@ -88,7 +88,7 @@ class InitState extends State<LoginScreen> {
               margin: EdgeInsets.only(left: 20, right: 20, top: 80),
               padding: EdgeInsets.only(left: 20, right: 20),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
+                borderRadius: BorderRadius.circular(10),
                 color: Colors.grey[200],
                 boxShadow: [
                   BoxShadow(
@@ -117,7 +117,7 @@ class InitState extends State<LoginScreen> {
               margin: EdgeInsets.only(left: 20, right: 20, top: 40),
               padding: EdgeInsets.only(left: 20, right: 20),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
+                borderRadius: BorderRadius.circular(10),
                 color: Colors.grey[200],
                 boxShadow: [
                   BoxShadow(
@@ -212,7 +212,7 @@ class InitState extends State<LoginScreen> {
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight,
                     ),
-                    borderRadius: BorderRadius.circular(50),
+                    borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       (BoxShadow(
                         offset: Offset(0, 10),

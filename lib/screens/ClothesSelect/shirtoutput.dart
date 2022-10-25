@@ -17,10 +17,16 @@ class VideoPlayerScreen extends StatefulWidget {
   int myleglength;
   String vs;
   int num;
-  VideoPlayerScreen(this.vs, this.num, @required this.clothType, @required this.myshoulderwidth,
-      @required this.myhip, @required this.myleglength);
+  VideoPlayerScreen(
+      this.vs,
+      this.num,
+      @required this.clothType,
+      @required this.myshoulderwidth,
+      @required this.myhip,
+      @required this.myleglength);
   @override
-  VideoPlayerScreenState createState() => VideoPlayerScreenState(vs, num, clothType, myshoulderwidth, myhip, myleglength);
+  VideoPlayerScreenState createState() => VideoPlayerScreenState(
+      vs, num, clothType, myshoulderwidth, myhip, myleglength);
 }
 
 class VideoPlayerScreenState extends State<VideoPlayerScreen> {
@@ -36,8 +42,13 @@ class VideoPlayerScreenState extends State<VideoPlayerScreen> {
   int myleglength;
   String vsd;
   int snum;
-  VideoPlayerScreenState(@required this.vsd, @required this.snum, @required this.clothType, @required this.myshoulderwidth,
-      @required this.myhip, @required this.myleglength);
+  VideoPlayerScreenState(
+      @required this.vsd,
+      @required this.snum,
+      @required this.clothType,
+      @required this.myshoulderwidth,
+      @required this.myhip,
+      @required this.myleglength);
   // String v1 = "This cloth is too tight for you";
 
   @override
@@ -49,7 +60,7 @@ class VideoPlayerScreenState extends State<VideoPlayerScreen> {
           child: Text("ELEGANT FIT ON",
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 195, 32, 221))),
+                  color: Color.fromARGB(255, 181, 10, 224))),
         ),
         backgroundColor: Color.fromARGB(255, 247, 247, 247),
         actions: [
@@ -125,11 +136,8 @@ class VideoPlayerScreenState extends State<VideoPlayerScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => shirts(
-                                clothType,
-                                myshoulderwidth,
-                                myhip,
-                                myleglength)),
+                            builder: (context) => shirts(clothType,
+                                myshoulderwidth, myhip, myleglength)),
                       );
                     },
                     child: Image.asset(

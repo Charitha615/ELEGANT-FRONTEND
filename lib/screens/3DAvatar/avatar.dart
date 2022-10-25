@@ -20,6 +20,7 @@ import 'package:ssh/ssh.dart';
 
 import '../ClothesSelect/ShoppingItems.dart';
 import '../ClothesSelect/msrnt.dart';
+import '../home/home_screen.dart';
 
 void main() {
   runApp(const Avatar());
@@ -258,12 +259,37 @@ class _AvatarState extends State<Avatar> {
           child: Column(
             children: [
               Container(
-                child: OutlinedButton(
-                  onPressed: _selectImage,
-                  child: const Text('Open Gallery'),
-                  style: OutlinedButton.styleFrom(
-                    primary: Colors.white,
-                    backgroundColor: Colors.teal,
+                padding: const EdgeInsets.only(top: 20),
+                child: GestureDetector(
+                  onTap: _selectImage,
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 35,
+                    width: 130,
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color.fromARGB(210, 44, 9, 241),
+                            Color.fromARGB(255, 181, 10, 224),
+                          ],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          (BoxShadow(
+                            offset: Offset(0, 10),
+                            blurRadius: 50,
+                            color: Color(0xffEEEEEE),
+                          ))
+                        ]),
+                    child: const Text(
+                      'Open Gallery',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -295,30 +321,99 @@ class _AvatarState extends State<Avatar> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 10),
-                      child: OutlinedButton(
-                        onPressed: _detectImageBodyMask,
-                        child: const Text('Detect body mask'),
-                        style: OutlinedButton.styleFrom(
-                          primary: Colors.white,
-                          backgroundColor: Colors.teal,
+                      child: SizedBox(
+                        child: Expanded(
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomeScreen()),
+                              );
+                            },
+                            child: Image.asset(
+                              'assets/images/previous.png',
+                              width: 50.0,
+                              height: 40.0,
+                            ),
+                          ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: OutlinedButton(
-                        onPressed: _detectImagePose,
-                        child: const Text('Detect pose'),
-                        style: OutlinedButton.styleFrom(
-                          primary: Colors.white,
-                          backgroundColor: Colors.teal,
+                      padding: const EdgeInsets.only(left: 0),
+                      child: GestureDetector(
+                        onTap: _detectImageBodyMask,
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 35,
+                          width: 140,
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color.fromARGB(210, 44, 9, 241),
+                                  Color.fromARGB(255, 181, 10, 224),
+                                ],
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                              ),
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                (BoxShadow(
+                                  offset: Offset(0, 10),
+                                  blurRadius: 50,
+                                  color: Color(0xffEEEEEE),
+                                ))
+                              ]),
+                          child: const Text(
+                            'Detect body mask',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: OutlinedButton(
-                        onPressed: () {
+                      padding: const EdgeInsets.only(left: 10),
+                      child: GestureDetector(
+                        onTap: _detectImagePose,
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 35,
+                          width: 100,
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color.fromARGB(210, 44, 9, 241),
+                                  Color.fromARGB(255, 181, 10, 224),
+                                ],
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                              ),
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                (BoxShadow(
+                                  offset: Offset(0, 10),
+                                  blurRadius: 50,
+                                  color: Color(0xffEEEEEE),
+                                ))
+                              ]),
+                          child: const Text(
+                            'Detect pose',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: GestureDetector(
+                        onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -331,10 +426,35 @@ class _AvatarState extends State<Avatar> {
                             ),
                           );
                         },
-                        child: const Text('Next'),
-                        style: OutlinedButton.styleFrom(
-                          primary: Colors.white,
-                          backgroundColor: Colors.teal,
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 35,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color.fromARGB(210, 44, 9, 241),
+                                  Color.fromARGB(255, 181, 10, 224),
+                                ],
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                              ),
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                (BoxShadow(
+                                  offset: Offset(0, 10),
+                                  blurRadius: 50,
+                                  color: Color(0xffEEEEEE),
+                                ))
+                              ]),
+                          child: const Text(
+                            'Next',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              // backgroundColor: Color.fromARGB(255, 181, 10, 224),
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -387,7 +507,7 @@ class _AvatarState extends State<Avatar> {
             child: Text("ELEGANT FIT ON",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 195, 32, 221))),
+                    color: Color.fromARGB(255, 181, 10, 224))),
           ),
           backgroundColor: Color.fromARGB(255, 247, 247, 247),
           actions: [

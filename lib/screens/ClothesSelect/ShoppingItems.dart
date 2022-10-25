@@ -62,7 +62,7 @@ class MyHomePage extends State {
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   // fontFamily: 'League Gothic',
-                  color: Color.fromARGB(255, 195, 32, 221))),
+                  color: Color.fromARGB(255, 181, 10, 224))),
         ),
         backgroundColor: Color.fromARGB(255, 247, 247, 247),
         actions: [

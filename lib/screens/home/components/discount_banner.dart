@@ -9,6 +9,7 @@ class DiscountBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // alignment: Alignment.center,
       // height: 90,
       width: double.infinity,
       margin: EdgeInsets.all(getProportionateScreenWidth(20)),
@@ -17,12 +18,19 @@ class DiscountBanner extends StatelessWidget {
         vertical: getProportionateScreenWidth(15),
       ),
       decoration: BoxDecoration(
-        color: Color(0xFF246EE9),
+        gradient: LinearGradient(
+          colors: [
+            Color.fromARGB(210, 44, 9, 241),
+            Color.fromARGB(255, 181, 10, 224),
+          ],
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+        ),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text.rich(
         TextSpan(
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Color.fromARGB(253, 255, 255, 255)),
           children: [
             TextSpan(text: "A Summer Surpise\n"),
             TextSpan(

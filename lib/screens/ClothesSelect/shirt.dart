@@ -129,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("ELEGANT FIT ON",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 195, 32, 221))),
+                      color: Color.fromARGB(255, 181, 10, 224))),
             ),
             backgroundColor: Color.fromARGB(255, 247, 247, 247),
             actions: [
@@ -300,7 +300,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         //               begin: Alignment.centerLeft,
                         //               end: Alignment.centerRight,
                         //             ),
-                        //             borderRadius: BorderRadius.circular(50),
+                        //             borderRadius: BorderRadius.circular(10),
                         //             boxShadow: [
                         //               (BoxShadow(
                         //                 offset: Offset(0, 10),
@@ -375,13 +375,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                 decoration: BoxDecoration(
                                     gradient: LinearGradient(
                                       colors: [
-                                        Color.fromARGB(211, 49, 106, 240),
-                                        (Color.fromARGB(255, 194, 83, 209)),
+                                        Color.fromARGB(210, 44, 9, 241),
+                                        (Color.fromARGB(255, 181, 10, 224)),
                                       ],
                                       begin: Alignment.centerLeft,
                                       end: Alignment.centerRight,
                                     ),
-                                    borderRadius: BorderRadius.circular(50),
+                                    borderRadius: BorderRadius.circular(10),
                                     boxShadow: [
                                       (BoxShadow(
                                         offset: Offset(0, 10),
@@ -395,7 +395,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromARGB(255, 0, 0, 0),
+                                      color: Color.fromARGB(255, 255, 255, 255),
                                       fontFamily: 'RaleWay'),
                                 ),
                               ),

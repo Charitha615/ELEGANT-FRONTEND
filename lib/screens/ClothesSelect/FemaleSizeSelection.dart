@@ -208,7 +208,7 @@ class MyHomePage extends State {
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
                             ),
-                            borderRadius: BorderRadius.circular(50),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               (BoxShadow(
                                 offset: Offset(0, 10),
@@ -259,7 +259,7 @@ class MyHomePage extends State {
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
                             ),
-                            borderRadius: BorderRadius.circular(50),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               (BoxShadow(
                                 offset: Offset(0, 10),
@@ -310,7 +310,7 @@ class MyHomePage extends State {
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
                             ),
-                            borderRadius: BorderRadius.circular(50),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               (BoxShadow(
                                 offset: Offset(0, 10),
@@ -438,7 +438,8 @@ class MyHomePage extends State {
                           } else if (clothType == 'pants') {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => pants(clothType,
+                              MaterialPageRoute(
+                                  builder: (context) => pants(clothType,
                                       myshoulderwidth, myhip, myleglength)),
                             );
                           }

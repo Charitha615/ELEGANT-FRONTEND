@@ -79,7 +79,7 @@ class _TprofileScreenState extends State<UserProfile> {
                 margin: EdgeInsets.only(left: 20, right: 20, top: 20),
                 padding: EdgeInsets.only(left: 20, right: 20),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(10),
                   color: Colors.grey[200],
                   boxShadow: [
                     BoxShadow(
@@ -104,7 +104,7 @@ class _TprofileScreenState extends State<UserProfile> {
                 margin: EdgeInsets.only(left: 20, right: 20, top: 20),
                 padding: EdgeInsets.only(left: 20, right: 20),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(10),
                   color: Colors.grey[200],
                   boxShadow: [
                     BoxShadow(
@@ -129,7 +129,7 @@ class _TprofileScreenState extends State<UserProfile> {
                 margin: EdgeInsets.only(left: 20, right: 20, top: 20),
                 padding: EdgeInsets.only(left: 20, right: 20),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(10),
                   color: Colors.grey[200],
                   boxShadow: [
                     BoxShadow(
@@ -150,7 +150,6 @@ class _TprofileScreenState extends State<UserProfile> {
                   },
                 ),
               ),
-           
               SizedBox(
                 height: 35,
               ),

@@ -1,8 +1,11 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_cube/flutter_cube.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:ssh/ssh.dart';
+import 'ShoppingItems.dart';
 import 'shirt.dart';
 import 'short.dart';
 import 'pants.dart';
@@ -148,7 +151,27 @@ class MyHomePage extends State {
     } else {}
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Elegant FitOn"),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 70),
+          child: Text("ELEGANT FIT ON",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  // fontFamily: 'League Gothic',
+                  color: Color.fromARGB(255, 181, 10, 224))),
+        ),
+        backgroundColor: Color.fromARGB(255, 247, 247, 247),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 50),
+            child: Container(
+              //  alignment: Alignment.topRight,
+              width: 80,
+              child: Image.asset(
+                'assets/images/Picture1.png',
+              ),
+            ),
+          ),
+        ],
       ),
       body: Center(
         child: Container(
@@ -212,7 +235,7 @@ class MyHomePage extends State {
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
                             ),
-                            borderRadius: BorderRadius.circular(50),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               (BoxShadow(
                                 offset: Offset(0, 10),
@@ -263,7 +286,7 @@ class MyHomePage extends State {
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
                             ),
-                            borderRadius: BorderRadius.circular(50),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               (BoxShadow(
                                 offset: Offset(0, 10),
@@ -314,7 +337,7 @@ class MyHomePage extends State {
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
                             ),
-                            borderRadius: BorderRadius.circular(50),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               (BoxShadow(
                                 offset: Offset(0, 10),
@@ -331,8 +354,8 @@ class MyHomePage extends State {
                               color: Colors.white,
                             ),
                           ),
-                          color: Color.fromARGB(255, 46, 14, 226)
-                              .withOpacity(0.01),
+                          color:
+                              Color.fromARGB(255, 9, 24, 230).withOpacity(0.01),
                           onPressed: () {
                             showDialog(
                               context: context,
@@ -419,7 +442,26 @@ class MyHomePage extends State {
                 child: Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 305),
+                      padding: const EdgeInsets.only(left: 25),
+                      child: Expanded(
+                          child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => sitems("Male",
+                                    myshoulderwidth, myhip, myleglength)),
+                          );
+                        },
+                        child: Image.asset(
+                          'assets/images/previous.png',
+                          width: 60.0,
+                          height: 50.0,
+                        ),
+                      )),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 220),
                       child: Expanded(
                           child: InkWell(
                         onTap: () {
@@ -427,23 +469,29 @@ class MyHomePage extends State {
                             print(clothType);
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => shirts()),
+                              MaterialPageRoute(
+                                  builder: (context) => shirts(clothType,
+                                      myshoulderwidth, myhip, myleglength)),
                             );
                           } else if (clothType == 'shorts') {
                             print(clothType);
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => shorts()),
+                              MaterialPageRoute(
+                                  builder: (context) => shorts(clothType,
+                                      myshoulderwidth, myhip, myleglength)),
                             );
                           } else if (clothType == 'pants') {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => pants()),
+                              MaterialPageRoute(
+                                  builder: (context) => pants(clothType,
+                                      myshoulderwidth, myhip, myleglength)),
                             );
                           }
                         },
                         child: Image.asset(
-                          'assets/images/next.png',
+                          'assets/images/next1.png',
                           width: 60.0,
                           height: 50.0,
                         ),
@@ -462,7 +510,7 @@ class MyHomePage extends State {
   final Shader linearGradient = LinearGradient(
     colors: <Color>[
       Color.fromARGB(255, 8, 12, 240),
-      Color.fromARGB(255, 189, 8, 235)
+      Color.fromARGB(255, 181, 10, 224)
     ],
   ).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
 

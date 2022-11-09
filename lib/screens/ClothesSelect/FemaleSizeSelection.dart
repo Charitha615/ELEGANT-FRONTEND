@@ -61,7 +61,7 @@ class MyHomePage extends State {
   String largesize = 'tshirtFemale3large';
   MyHomePage(@required this.clothType, @required this.myshoulderwidth,
       @required this.myhip, @required this.myleglength);
-  
+
   final FlutterTts fluttertts = FlutterTts();
   speak(String vtext) async {
     debugPrint('Received Hello');
@@ -208,7 +208,7 @@ class MyHomePage extends State {
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
                             ),
-                            borderRadius: BorderRadius.circular(50),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               (BoxShadow(
                                 offset: Offset(0, 10),
@@ -259,7 +259,7 @@ class MyHomePage extends State {
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
                             ),
-                            borderRadius: BorderRadius.circular(50),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               (BoxShadow(
                                 offset: Offset(0, 10),
@@ -310,7 +310,7 @@ class MyHomePage extends State {
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
                             ),
-                            borderRadius: BorderRadius.circular(50),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               (BoxShadow(
                                 offset: Offset(0, 10),
@@ -423,18 +423,24 @@ class MyHomePage extends State {
                             print(clothType);
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => shirts()),
+                              MaterialPageRoute(
+                                  builder: (context) => shirts(clothType,
+                                      myshoulderwidth, myhip, myleglength)),
                             );
                           } else if (clothType == 'shorts') {
                             print(clothType);
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => shorts()),
+                              MaterialPageRoute(
+                                  builder: (context) => shorts(clothType,
+                                      myshoulderwidth, myhip, myleglength)),
                             );
                           } else if (clothType == 'pants') {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => pants()),
+                              MaterialPageRoute(
+                                  builder: (context) => pants(clothType,
+                                      myshoulderwidth, myhip, myleglength)),
                             );
                           }
                         },

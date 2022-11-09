@@ -5,13 +5,18 @@ import 'package:elegant_fit_on/screens/Voice/voice.dart';
 import 'package:elegant_fit_on/screens/ClothesSelect/ShoppingItems.dart';
 
 import '../../3DAvatar/avatar.dart';
+import '../../3DAvatar/instruct.dart';
 import '../../ClothesSelect/msrnt.dart';
 
 class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
-      {"icon": "assets/icons/avatar-svgrepo-com.svg", "text": "Avatar"},
+      {
+        "icon": "assets/icons/avatar-svgrepo-com.svg",
+        "text": "Avatar",
+        "press": "Avatar()"
+      },
       {
         "icon": "assets/icons/voice-one-svgrepo-com.svg",
         "text": "Voice",
@@ -20,17 +25,17 @@ class Categories extends StatelessWidget {
       {
         "icon": "assets/icons/baseball-clothes-svgrepo-com.svg",
         "text": "Clothes ",
-        "press": ""
+        "press": "VoicePage()"
       },
       {
         "icon": "assets/icons/history-svgrepo-com (1).svg",
         "text": "History",
-        "press": ""
+        "press": "VoicePage()"
       },
       {
         "icon": "assets/icons/more-svgrepo-com.svg",
         "text": "More",
-        "press": ""
+        "press": "VoicePage()"
       },
     ];
     return Padding(
@@ -44,25 +49,22 @@ class Categories extends StatelessWidget {
             icon: categories[index]["icon"],
             text: categories[index]["text"],
             press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) =>
-                      // sitems('Male', 16, 32, 32),
-                      VoicePage(),
-                  // builder: (context) => msrnt('Male', 14, 34, 34),
-                  //myshoulderwidth, myhip, myleglength
-                  // builder: (context) => sitems('Male', 14, 34, 34),//myshoulderwidth, myhip, myleglength
-                  // builder: (context) => sitems('Male', 20, 36, 36),//myshoulderwidth, myhip, myleglength
-
-                  // builder: (context) => categories[index]
-                  //     ["press"], //myshoulderwidth, myhip, myleglength
-                ),
-              );
               // Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //         builder: (context) => sitems('Male', 14, 34, 34)));
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => categories[index]["press"],
+              //   ),
+              // );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => VoicePage(),
+              //   ),
+              // );
+              showDialog(
+                context: context,
+                builder: (BuildContext context) => instruct(),
+              );
             },
           ),
         ),

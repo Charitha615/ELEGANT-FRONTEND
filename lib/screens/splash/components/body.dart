@@ -26,7 +26,6 @@ class _BodyState extends State<Body> {
       "text":
           "We show the easy way to fit on clothes. \nJust stay at home with us",
       "image": "https://assets6.lottiefiles.com/packages/lf20_fmnkb5lo.json"
-
     },
   ];
   @override
@@ -38,7 +37,6 @@ class _BodyState extends State<Body> {
           children: <Widget>[
             Expanded(
               flex: 3,
-
               child: PageView.builder(
                 onPageChanged: (value) {
                   setState(() {
@@ -46,16 +44,12 @@ class _BodyState extends State<Body> {
                   });
                 },
                 itemCount: splashData.length,
-
                 itemBuilder: (context, index) => SplashContent(
                   image: splashData[index]["image"],
                   text: splashData[index]['text'],
                 ),
-
               ),
-
             ),
-
             Expanded(
               flex: 2,
               child: Padding(
@@ -104,7 +98,7 @@ class _BodyState extends State<Body> {
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
                             ),
-                            borderRadius: BorderRadius.circular(50),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               (BoxShadow(
                                 offset: Offset(0, 10),

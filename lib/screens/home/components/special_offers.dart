@@ -5,8 +5,10 @@ import 'package:elegant_fit_on/screens/Clothes/shorts/shorts.dart';
 import 'package:flutter/material.dart';
 
 import 'package:elegant_fit_on/components/size_config.dart';
+import '../../ClothesSelect/MaleSizeSelection.dart';
 import '../../ClothesSelect/ShoppingItems.dart';
 import '../../ClothesSelect/msrnt.dart';
+import '../../tshirts_screen/tshirt.dart';
 import 'section_title.dart';
 
 class SpecialOffers extends StatelessWidget {
@@ -16,6 +18,10 @@ class SpecialOffers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String mygender;
+    int myshoulderwidth = 0;
+    int myhip = 0;
+    int myleglength = 0;
     return Column(
       children: [
         Padding(
@@ -36,11 +42,15 @@ class SpecialOffers extends StatelessWidget {
                 category: "T shirts",
                 numOfBrands: 18,
                 press: () {
+                  var i = 0;
+                  var j = 0;
+                  var k = 0;
+                  var s = "";
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => msrnt('Male', 16, 32, 32),
-                      ));
+                    context,
+                    MaterialPageRoute(  
+                        builder: (context) => TshirtsItems()),
+                  );
                 },
               ),
               SpecialOfferCard(

@@ -54,30 +54,30 @@ class CustomBottomNavBar extends StatelessWidget {
                       ));
                 },
               ),
-              IconButton(
-                icon: SvgPicture.asset(
-                  "assets/icons/camera.svg",
-                  height: 25,
-                  width: 25,
-                ),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomeScreen(),
-                      ));
-                },
-              ),
-              IconButton(
-                icon: SvgPicture.asset("assets/icons/Chat bubble Icon.svg"),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomeScreen(),
-                      ));
-                },
-              ),
+              // IconButton(
+              //   icon: SvgPicture.asset(
+              //     "assets/icons/camera.svg",
+              //     height: 25,
+              //     width: 25,
+              //   ),
+              //   onPressed: () {
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //           builder: (context) => HomeScreen(),
+              //         ));
+              //   },
+              // ),
+              // IconButton(
+              //   icon: SvgPicture.asset("assets/icons/Chat bubble Icon.svg"),
+              //   onPressed: () {
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //           builder: (context) => HomeScreen(),
+              //         ));
+              //   },
+              // ),
               IconButton(
                 icon: SvgPicture.asset(
                   "assets/icons/User Icon.svg",

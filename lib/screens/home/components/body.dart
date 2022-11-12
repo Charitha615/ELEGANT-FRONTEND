@@ -5,6 +5,7 @@ import 'discount_banner.dart';
 import 'home_header.dart';
 import 'popular_product.dart';
 import 'special_offers.dart';
+import 'startAvatarCreate.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -17,7 +18,8 @@ class Body extends StatelessWidget {
             HomeHeader(),
             SizedBox(height: getProportionateScreenWidth(10)),
             DiscountBanner(),
-            Categories(),
+            StartAvatar(),
+            // Categories(),
             SpecialOffers(),
             SizedBox(height: getProportionateScreenWidth(30)),
             PopularProducts(),

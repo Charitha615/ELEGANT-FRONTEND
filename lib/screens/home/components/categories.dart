@@ -17,26 +17,26 @@ class Categories extends StatelessWidget {
         "text": "Avatar",
         "press": "Avatar()"
       },
-      {
-        "icon": "assets/icons/voice-one-svgrepo-com.svg",
-        "text": "Voice",
-        "press": "VoicePage()"
-      },
-      {
-        "icon": "assets/icons/baseball-clothes-svgrepo-com.svg",
-        "text": "Clothes ",
-        "press": "VoicePage()"
-      },
-      {
-        "icon": "assets/icons/history-svgrepo-com (1).svg",
-        "text": "History",
-        "press": "VoicePage()"
-      },
-      {
-        "icon": "assets/icons/more-svgrepo-com.svg",
-        "text": "More",
-        "press": "VoicePage()"
-      },
+      // {
+      //   "icon": "assets/icons/voice-one-svgrepo-com.svg",
+      //   "text": "Voice",
+      //   "press": "VoicePage()"
+      // },
+      // {
+      //   "icon": "assets/icons/baseball-clothes-svgrepo-com.svg",
+      //   "text": "Clothes ",
+      //   "press": "VoicePage()"
+      // },
+      // {  
+      //   "icon": "assets/icons/history-svgrepo-com (1).svg",
+      //   "text": "History",
+      //   "press": "VoicePage()"
+      // },
+      // {
+      //   "icon": "assets/icons/more-svgrepo-com.svg",
+      //   "text": "More",
+      //   "press": "VoicePage()"
+      // },
     ];
     return Padding(
       padding: EdgeInsets.all(getProportionateScreenWidth(20)),

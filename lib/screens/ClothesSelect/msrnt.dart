@@ -1,3 +1,4 @@
+import 'package:elegant_fit_on/screens/3DAvatar/previewav.dart';
 import 'package:flutter/material.dart';
 
 import '../3DAvatar/avatar.dart';
@@ -149,7 +150,7 @@ class _State extends State<msrnt> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const Avatar(),
+                                  builder: (context) => previewav(s, i, j, k),
                                 ),
                               );
                             },

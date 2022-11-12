@@ -22,6 +22,7 @@ import '../ClothesSelect/ShoppingItems.dart';
 import '../ClothesSelect/msrnt.dart';
 import '../home/home_screen.dart';
 
+var fp;
 void main() {
   runApp(const Avatar());
 }
@@ -34,11 +35,12 @@ class Avatar extends StatefulWidget {
 }
 
 class _AvatarState extends State<Avatar> {
+  bool _enabled = true;
   int _selectedTabIndex = 0;
   String backendip = "192.168.8.158";
   bool _isDetectingPose = false;
   bool _isDetectingBodyMask = false;
-  var fp;
+  // var fp;
   Image? _selectedImage;
   Pose? _detectedPose;
   ui.Image? _maskImage;
@@ -238,7 +240,7 @@ class _AvatarState extends State<Avatar> {
     String ello = newqqq.substring(2, newqqq.length - 1);
 
     try {
-      print(fp);
+      print(fp + "headsadasdasdasdasdasdasdasdsadsdasda");
       var formdata =
           FormData.fromMap({"image": await MultipartFile.fromFile(ello)});
       var response = await Dio()
@@ -293,14 +295,19 @@ class _AvatarState extends State<Avatar> {
                   ),
                 ),
               ),
-              Container(
-                child: Lottie.network(
-                  'https://assets10.lottiefiles.com/packages/lf20_gictuerj.json',
-                  height: 400,
-                  width: 400,
-                ),
+              Column(
+                children: [
+                  if (fp == null) ...[
+                    Lottie.network(
+                      'https://assets10.lottiefiles.com/packages/lf20_gictuerj.json',
+                      height: 400,
+                      width: 400,
+                    ),
+                  ] 
+                ],
               ),
               Container(
+
                   // child: Text(_selectImage),
                   ),
               GestureDetector(
@@ -410,16 +417,20 @@ class _AvatarState extends State<Avatar> {
                         ),
                       ),
                     ),
-                    Padding(
+
+if (fp != null) ...[        
+              Padding(
+
                       padding: const EdgeInsets.only(left: 10),
                       child: GestureDetector(
+
                         onTap: () {
+
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => msrnt('Male', 14, 34,
                                   34), //myshoulderwidth, myhip, myleglength
-                              
                             ),
                           );
                         },
@@ -439,6 +450,7 @@ class _AvatarState extends State<Avatar> {
                               borderRadius: BorderRadius.circular(10),
                               boxShadow: [
                                 (BoxShadow(
+
                                   offset: Offset(0, 10),
                                   blurRadius: 50,
                                   color: Color(0xffEEEEEE),
@@ -455,6 +467,7 @@ class _AvatarState extends State<Avatar> {
                         ),
                       ),
                     ),
+],
                   ],
                 ),
               ),
@@ -547,6 +560,17 @@ class _AvatarState extends State<Avatar> {
         action: SnackBarAction(
             label: 'UNDO', onPressed: scaffold.hideCurrentSnackBar),
       ),
+    );
+  }
+}
+
+void isDesign() {
+  if (fp != null) {
+    child:
+    Lottie.network(
+      'https://assets10.lottiefiles.com/packages/lf20_gictuerj.json',
+      height: 400,
+      width: 400,
     );
   }
 }

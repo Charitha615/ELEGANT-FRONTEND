@@ -144,59 +144,60 @@ class InitState extends State<LoginScreen> {
               ),
             ),
             GestureDetector(
-              // onTap: () => {loginUser(userEmail, userPass)},
+              // onTap: () => {},
               onTap: () => {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Stack(
-                    children: [
-                      Container(
-                          padding: EdgeInsets.all(16),
-                          height: 60,
-                          // decoration: BoxDecoration(
-                          //     color: Color(0xFF2784EC),
-                          //     // color:Colors.transparent,
-                          //     borderRadius:
-                          //         BorderRadius.all(Radius.circular(20))),
-                          child: Row(
-                            children: [
-                              const SizedBox(
-                                width: 48,
-                              ),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [],
-                                ),
-                              ),
-                            ],
-                          )),
-                      Center(
-                        child: Positioned(
-                          // bottom: 0,
-                          child: ClipRRect(
-                            borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(20),
-                            ),
-                            child: Lottie.network(
-                                'https://assets9.lottiefiles.com/packages/lf20_bo8vqwyw.json',
-                                height: 80,
-                                width: 80),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  behavior: SnackBarBehavior.floating,
-                  backgroundColor: Colors.transparent,
-                  elevation: 0,
-                )),
-                new Timer(const Duration(milliseconds: 4500), () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomeScreen(),
-                      ));
-                }),
+                loginUser(userEmail, userPass),
+                // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                //   content: Stack(
+                //     children: [
+                //       Container(
+                //           padding: EdgeInsets.all(16),
+                //           height: 60,
+                //           // decoration: BoxDecoration(
+                //           //     color: Color(0xFF2784EC),
+                //           //     // color:Colors.transparent,
+                //           //     borderRadius:
+                //           //         BorderRadius.all(Radius.circular(20))),
+                //           child: Row(
+                //             children: [
+                //               const SizedBox(
+                //                 width: 48,
+                //               ),
+                //               Expanded(
+                //                 child: Column(
+                //                   crossAxisAlignment: CrossAxisAlignment.start,
+                //                   children: [],
+                //                 ),
+                //               ),
+                //             ],
+                //           )),
+                //       Center(
+                //         child: Positioned(
+                //           // bottom: 0,
+                //           child: ClipRRect(
+                //             borderRadius: const BorderRadius.only(
+                //               bottomLeft: Radius.circular(20),
+                //             ),
+                //             child: Lottie.network(
+                //                 'https://assets9.lottiefiles.com/packages/lf20_bo8vqwyw.json',
+                //                 height: 80,
+                //                 width: 80),
+                //           ),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                //   behavior: SnackBarBehavior.floating,
+                //   backgroundColor: Colors.transparent,
+                //   elevation: 0,
+                // )),
+                // new Timer(const Duration(milliseconds: 4500), () {
+                //   Navigator.push(
+                //       context,
+                //       MaterialPageRoute(
+                //         builder: (context) => HomeScreen(),
+                //       ));
+                // }),
               },
               child: Container(
                 margin: EdgeInsets.only(left: 20, right: 20, top: 80),
@@ -284,73 +285,83 @@ class InitState extends State<LoginScreen> {
           gravity: ToastGravity.BOTTOM,
           backgroundColor: Colors.red,
           textColor: Colors.white);
-    } else if (!isEmail(email)) {
-      Fluttertoast.showToast(
-          msg: "Please enter a valid email.",
+    }else if(email == "admin" && password != "admin"){
+   Fluttertoast.showToast(
+          msg: "Password is Incorrect",
           fontSize: 18,
           gravity: ToastGravity.BOTTOM,
           backgroundColor: Colors.red,
           textColor: Colors.white);
-    } else {
-      try {
-        var responsee = await Dio().post(
-            CommonService.LocalURL + "/UserRoute/login",
-            data: {"user_email": email, "user_password": password});
-
-        print("datasss" + responsee.data.toString());
-        print("response.statusCode" + responsee.statusCode.toString());
-
-        if (responsee.statusCode == 200) {
-          Fluttertoast.showToast(
-              msg: "Successfully Logged Teacher",
-              fontSize: 18,
-              gravity: ToastGravity.BOTTOM,
-              backgroundColor: Colors.green,
-              textColor: Colors.white);
-          // Navigator.push(
-          //     context,
-          //     MaterialPageRoute(
-          //       builder: (context) => UserHome(),
-          //     ));
-          final prefs = await SharedPreferences.getInstance();
-          await prefs.setString(
-              'user_email', responsee.data["data"]["user_email"].toString());
-
-          await prefs.setString(
-              'user_name', responsee.data["data"]["user_name"].toString());
-
-          await prefs.setString(
-              'user_id', responsee.data["data"]["_id"].toString());
-
-          await prefs.setString(
-              'user_type', responsee.data["data"]["user_type"].toString());
-
-          var userEmail = prefs.getString('user_email');
-          var userName = prefs.getString('user_name');
-          var user_id = prefs.getString('user_id');
-
-          print("user_Email :" + responsee.data["data"]["user_email"]);
-        }
-      } catch (e) {
-        print(e);
-      }
+    }else if (email == "admin" && password == "admin") {
+      Fluttertoast.showToast(
+          msg: "Connected",
+          fontSize: 18,
+          gravity: ToastGravity.BOTTOM,
+          backgroundColor: Colors.green,
+          textColor: Colors.white);
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Stack(
+          children: [
+            Container(
+                padding: EdgeInsets.all(16),
+                height: 60,
+                child: Row(
+                  children: [
+                    const SizedBox(
+                      width: 48,
+                    ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [],
+                      ),
+                    ),
+                  ],
+                )),
+            Center(
+              child: Positioned(
+                // bottom: 0,
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                  ),
+                  child: Lottie.network(
+                      'https://assets9.lottiefiles.com/packages/lf20_bo8vqwyw.json',
+                      height: 80,
+                      width: 80),
+                ),
+              ),
+            ),
+          ],
+        ),
+        behavior: SnackBarBehavior.floating,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ));
+      new Timer(const Duration(milliseconds: 4500), () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomeScreen(),
+            ));
+      });
     }
   }
+}
 
-  bool isEmail(String email) {
-    String p =
-        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+bool isEmail(String email) {
+  String p =
+      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 
-    RegExp regExp = new RegExp(p);
+  RegExp regExp = new RegExp(p);
 
-    return regExp.hasMatch(email);
-  }
+  return regExp.hasMatch(email);
+}
 
-  bool isPassword(String password) {
-    String p = r'(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$';
+bool isPassword(String password) {
+  String p = r'(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$';
 
-    RegExp regExp = new RegExp(p);
+  RegExp regExp = new RegExp(p);
 
-    return regExp.hasMatch(password);
-  }
+  return regExp.hasMatch(password);
 }

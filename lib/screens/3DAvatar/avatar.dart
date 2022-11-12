@@ -6,6 +6,7 @@ import 'package:elegant_fit_on/screens/3DAvatar/lib/models/image_result.dart';
 import 'package:elegant_fit_on/screens/3DAvatar/lib/models/pose.dart';
 import 'package:elegant_fit_on/screens/3DAvatar/lib/png_image.dart';
 import 'package:elegant_fit_on/screens/3DAvatar/pose_mask_painter.dart';
+import 'package:elegant_fit_on/screens/3DAvatar/previewav.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,7 +20,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:ssh/ssh.dart';
 
 import '../ClothesSelect/ShoppingItems.dart';
-import '../ClothesSelect/msrnt.dart';
+import 'previewav.dart';
 import '../home/home_screen.dart';
 
 void main() {
@@ -417,7 +418,7 @@ class _AvatarState extends State<Avatar> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => msrnt('Male', 14, 34,
+                              builder: (context) => previewav('Male', 14, 34,
                                   34), //myshoulderwidth, myhip, myleglength
                               // builder: (context) =>  sitems('Male', 16, 32, 32),//myshoulderwidth, myhip, myleglength
                               // builder: (context) =>  sitems('Male', 14, 34, 34),//myshoulderwidth, myhip, myleglength

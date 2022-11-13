@@ -391,7 +391,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ]),
                                 child: Text(
                                   // "View".toUpperCase(),
-                                  "Proceed".toUpperCase(),
+                                  "View".toUpperCase(),
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,

@@ -150,7 +150,8 @@ class _State extends State<msrnt> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => previewav(s, i, j, k),
+                                  builder: (context) => const Avatar(),
+                                  // previewav(s, i, j, k),
                                 ),
                               );
                             },

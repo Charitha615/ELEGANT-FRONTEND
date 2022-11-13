@@ -30,7 +30,7 @@ class _State extends State<msrnt> {
       @required this.s, @required this.i, @required this.j, @required this.k);
 
   TextEditingController shoulderController =
-      new TextEditingController(text: '14');
+      new TextEditingController(text: '16');
   TextEditingController hipController = new TextEditingController(text: '32');
   TextEditingController lengthController =
       new TextEditingController(text: '34');

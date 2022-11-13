@@ -342,7 +342,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: GestureDetector(
                               onTap: () {
                                 String vs =
-                                    "You have selected a nice short and it perfectly fits for you.";
+                                    "You have selected a nice short and it perfectly fits for you. This will cost 2400 LKR.";
                                 // debugPrint('Received Process');
                                 reassemble();
                                 Navigator.push(

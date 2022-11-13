@@ -41,7 +41,7 @@ class DiscountBanner extends StatelessWidget {
           TextSpan(
             style: TextStyle(color: Color.fromARGB(253, 255, 255, 255)),
             children: [
-              TextSpan(text: "All the good staff is here...!\n\n"),
+              TextSpan(text: "All the good stuff is here...!\n\n"),
               // TextSpan(text: "click here...\n"),
 
               TextSpan(

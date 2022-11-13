@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:elegant_fit_on/screens/3DAvatar/lib/body_detection.dart';
@@ -24,7 +25,6 @@ import '../ClothesSelect/ShoppingItems.dart';
 import '../ClothesSelect/msrnt.dart';
 import 'previewav.dart';
 import '../home/home_screen.dart';
-
 
 var fp = null;
 
@@ -259,7 +259,6 @@ class _AvatarState extends State<Avatar> {
     // await file.writeAsBytes(response);
 
     try {
-
       // print(fp + "headsadasdasdasdasdasdasdasdsadsdasda");
       var formdata =
           FormData.fromMap({"image": await MultipartFile.fromFile(ello)});
@@ -350,7 +349,6 @@ class _AvatarState extends State<Avatar> {
                       height: 400,
                       width: 400,
                     ),
-
                   ]
                 ],
               ),
@@ -465,22 +463,28 @@ class _AvatarState extends State<Avatar> {
                         ),
                       ),
                     ),
-
                     if (fp != null) ...[
                       Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: GestureDetector(
                           onTap: () async {
                             // avatercreate();
+                            Fluttertoast.showToast(
+                                msg: "The avatar is getting created...",
+                                timeInSecForIosWeb: 5,
+                                fontSize: 15,
+                                gravity: ToastGravity.BOTTOM,
+                                backgroundColor: Colors.lightBlue[300],
+                                textColor: Colors.white);
                             setState(() => isLoadingspnr = true);
-                            await Future.delayed(const Duration(seconds: 3));
+                            await Future.delayed(const Duration(seconds: 5));
                             setState(() => isLoadingspnr = false);
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => msrnt('Male', 14, 34,
                                     34), //myshoulderwidth, myhip, myleglength
-                                    // previewav('Male', 14, 34, 34),
+                                // previewav('Male', 14, 34, 34),
                               ),
                             );
                           },
@@ -516,7 +520,6 @@ class _AvatarState extends State<Avatar> {
                           ),
                         ),
                       ),
-
                     ],
                   ],
                 ),
@@ -586,7 +589,7 @@ class _AvatarState extends State<Avatar> {
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.image),  
+              icon: Icon(Icons.image),
               label: 'Image',
             ),
             BottomNavigationBarItem(

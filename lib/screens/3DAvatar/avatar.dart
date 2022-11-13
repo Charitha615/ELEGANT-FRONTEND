@@ -25,7 +25,9 @@ import '../ClothesSelect/msrnt.dart';
 import 'previewav.dart';
 import '../home/home_screen.dart';
 
-var fp;
+
+var fp = null;
+
 void main() {
   runApp(const Avatar());
 }
@@ -39,6 +41,7 @@ class Avatar extends StatefulWidget {
 
 class _AvatarState extends State<Avatar> {
   bool _enabled = true;
+
   bool isLoadingspnr = false;
   int _selectedTabIndex = 0;
   String backendip = "192.168.8.158";
@@ -256,6 +259,7 @@ class _AvatarState extends State<Avatar> {
     // await file.writeAsBytes(response);
 
     try {
+
       // print(fp + "headsadasdasdasdasdasdasdasdsadsdasda");
       var formdata =
           FormData.fromMap({"image": await MultipartFile.fromFile(ello)});
@@ -346,6 +350,7 @@ class _AvatarState extends State<Avatar> {
                       height: 400,
                       width: 400,
                     ),
+
                   ]
                 ],
               ),
@@ -460,6 +465,7 @@ class _AvatarState extends State<Avatar> {
                         ),
                       ),
                     ),
+
                     if (fp != null) ...[
                       Padding(
                         padding: const EdgeInsets.only(left: 10),
@@ -510,6 +516,7 @@ class _AvatarState extends State<Avatar> {
                           ),
                         ),
                       ),
+
                     ],
                   ],
                 ),
@@ -579,12 +586,12 @@ class _AvatarState extends State<Avatar> {
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.image),
+              icon: Icon(Icons.image),  
               label: 'Image',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.camera),
-              label: 'Camera',
+              label: 'Give it a try',
             ),
           ],
           currentIndex: _selectedTabIndex,

@@ -74,7 +74,8 @@ class MyApps extends StatelessWidget {
               content: Padding(
                 padding: const EdgeInsets.only(top: 190),
                 child: Text(
-                  "Photograph Instructions: \n\n" +
+                  // "Photograph Instructions: \n\n" +
+                  "Please select a photograph with following constraints: \n\n" +
                       "1. A front facing photograph taken of you from head to toe visible. \n\n" +
                       "2. Within 6 to 7 feets away from the camera.\n\n" +
                       "3. Wearing clothes that shows the body size as much as possible. \n\n" +

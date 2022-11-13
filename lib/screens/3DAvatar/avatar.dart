@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:elegant_fit_on/screens/3DAvatar/lib/body_detection.dart';
@@ -25,7 +26,8 @@ import '../ClothesSelect/msrnt.dart';
 import 'previewav.dart';
 import '../home/home_screen.dart';
 
-var fp;
+var fp = null;
+
 void main() {
   runApp(const Avatar());
 }
@@ -39,6 +41,7 @@ class Avatar extends StatefulWidget {
 
 class _AvatarState extends State<Avatar> {
   bool _enabled = true;
+
   bool isLoadingspnr = false;
   int _selectedTabIndex = 0;
   String backendip = "192.168.8.158";
@@ -466,15 +469,22 @@ class _AvatarState extends State<Avatar> {
                         child: GestureDetector(
                           onTap: () async {
                             // avatercreate();
+                            Fluttertoast.showToast(
+                                msg: "The avatar is getting created...",
+                                timeInSecForIosWeb: 5,
+                                fontSize: 15,
+                                gravity: ToastGravity.BOTTOM,
+                                backgroundColor: Colors.lightBlue[300],
+                                textColor: Colors.white);
                             setState(() => isLoadingspnr = true);
-                            await Future.delayed(const Duration(seconds: 3));
+                            await Future.delayed(const Duration(seconds: 5));
                             setState(() => isLoadingspnr = false);
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => msrnt('Male', 14, 34,
                                     34), //myshoulderwidth, myhip, myleglength
-                                    // previewav('Male', 14, 34, 34),
+                                // previewav('Male', 14, 34, 34),
                               ),
                             );
                           },
@@ -584,7 +594,7 @@ class _AvatarState extends State<Avatar> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.camera),
-              label: 'Camera',
+              label: 'Give it a try',
             ),
           ],
           currentIndex: _selectedTabIndex,

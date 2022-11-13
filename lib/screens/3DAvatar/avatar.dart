@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:elegant_fit_on/screens/3DAvatar/lib/body_detection.dart';
@@ -6,6 +7,7 @@ import 'package:elegant_fit_on/screens/3DAvatar/lib/models/image_result.dart';
 import 'package:elegant_fit_on/screens/3DAvatar/lib/models/pose.dart';
 import 'package:elegant_fit_on/screens/3DAvatar/lib/png_image.dart';
 import 'package:elegant_fit_on/screens/3DAvatar/pose_mask_painter.dart';
+import 'package:elegant_fit_on/screens/3DAvatar/previewav.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,9 +22,12 @@ import 'package:ssh/ssh.dart';
 
 import '../ClothesSelect/ShoppingItems.dart';
 import '../ClothesSelect/msrnt.dart';
+import 'previewav.dart';
 import '../home/home_screen.dart';
 
+
 var fp = null;
+
 void main() {
   runApp(const Avatar());
 }
@@ -36,6 +41,8 @@ class Avatar extends StatefulWidget {
 
 class _AvatarState extends State<Avatar> {
   bool _enabled = true;
+
+  bool isLoadingspnr = false;
   int _selectedTabIndex = 0;
   String backendip = "192.168.8.158";
   bool _isDetectingPose = false;
@@ -46,6 +53,7 @@ class _AvatarState extends State<Avatar> {
   ui.Image? _maskImage;
   Image? _cameraImage;
   Size _imageSize = Size.zero;
+  // ParseFileBase? parseFile;
 
   Future<void> _selectImage() async {
     FilePickerResult? result =
@@ -235,12 +243,24 @@ class _AvatarState extends State<Avatar> {
   }
 
   void avatercreate() async {
+    File file = File(
+        '/data/user/0/com.example.elegant_fit_on/cache/file_picker/000000.obj');
+    // var file = new File(
+    //     "/data/user/0/com.example.elegant_fit_on/cache/file_picker/000000.obj");
     String path = fp.toString();
     String? newqqq = path.split(":").last;
     String ello = newqqq.substring(2, newqqq.length - 1);
+    var response;
+    if (await file.exists()) {
+      // file.deleteSync();
+      // print("File deleted................................................");
+    }
+    // IOSink ios = file.openWrite(mode: FileMode.APPEND);
+    // await file.writeAsBytes(response);
 
     try {
-      print(fp + "headsadasdasdasdasdasdasdasdsadsdasda");
+
+      // print(fp + "headsadasdasdasdasdasdasdasdsadsdasda");
       var formdata =
           FormData.fromMap({"image": await MultipartFile.fromFile(ello)});
       var response = await Dio()
@@ -250,9 +270,36 @@ class _AvatarState extends State<Avatar> {
       if (response != null) {
         // print("Heloooooooooooooooooooooooooooooooooooooooo");
       }
+      // ios.add(response.data);
+      // return jsonDecode(response.data);
     } catch (e) {
       print(e);
       print("catch....................................");
+    }
+    print(response);
+    // await file.writeAsBytes(response);
+    print("Outside");
+    copyobj();
+  }
+
+  void copyobj() async {
+    var client = SSHClient(
+      host: backendip,
+      port: 22,
+      username: "sliit",
+      passwordOrKey: "1994",
+    );
+
+    String result;
+    try {
+      result = await client.connect();
+      if (result == "session_connected") {
+        result = await client.execute(
+            "sshpass -p 'Lucky' scp -r /home/sliit/VIBE/output/sample/meshes/0001/000000.obj 192.168.8.108:D:/Temp/research/ELEGANT-FRONTEND/assets/avatar/");
+      }
+      client.disconnect();
+    } on PlatformException catch (e) {
+      print('Error: ${e.code}\nError Message: ${e.message}');
     }
   }
 
@@ -303,7 +350,8 @@ class _AvatarState extends State<Avatar> {
                       height: 400,
                       width: 400,
                     ),
-                  ] 
+
+                  ]
                 ],
               ),
               Container(
@@ -418,56 +466,58 @@ class _AvatarState extends State<Avatar> {
                       ),
                     ),
 
-if (fp != null) ...[        
-              Padding(
-
-                      padding: const EdgeInsets.only(left: 10),
-                      child: GestureDetector(
-
-                        onTap: () {
-
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => msrnt('Male', 14, 34,
-                                  34), //myshoulderwidth, myhip, myleglength
-                            ),
-                          );
-                        },
-                        child: Container(
-                          alignment: Alignment.center,
-                          height: 35,
-                          width: 60,
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color.fromARGB(210, 44, 9, 241),
-                                  Color.fromARGB(255, 181, 10, 224),
-                                ],
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
+                    if (fp != null) ...[
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: GestureDetector(
+                          onTap: () async {
+                            // avatercreate();
+                            setState(() => isLoadingspnr = true);
+                            await Future.delayed(const Duration(seconds: 3));
+                            setState(() => isLoadingspnr = false);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => msrnt('Male', 14, 34,
+                                    34), //myshoulderwidth, myhip, myleglength
+                                    // previewav('Male', 14, 34, 34),
                               ),
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
-                                (BoxShadow(
-                                  offset: Offset(0, 10),
-                                  blurRadius: 50,
-                                  color: Color(0xffEEEEEE),
-                                ))
-                              ]),
-                          child: const Text(
-                            'Next',
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.white,
-                              // backgroundColor: Color.fromARGB(255, 181, 10, 224),
+                            );
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 35,
+                            width: 60,
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [
+                                    Color.fromARGB(210, 44, 9, 241),
+                                    Color.fromARGB(255, 181, 10, 224),
+                                  ],
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                                boxShadow: [
+                                  (BoxShadow(
+                                    offset: Offset(0, 10),
+                                    blurRadius: 50,
+                                    color: Color(0xffEEEEEE),
+                                  ))
+                                ]),
+                            child: const Text(
+                              'Next',
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                                // backgroundColor: Color.fromARGB(255, 181, 10, 224),
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    
-],
+
+                    ],
                   ],
                 ),
               ),

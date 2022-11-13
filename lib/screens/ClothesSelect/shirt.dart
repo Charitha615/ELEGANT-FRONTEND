@@ -351,7 +351,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               onTap: () {
                                 String vs = "You have selected a " +
                                     color +
-                                    " and it perfectly fits for you.";
+                                    " and it perfectly fits for you. This will cost you 2000 LKR.";
                                 // debugPrint('Received Process');
                                 reassemble();
                                 Navigator.push(
@@ -391,7 +391,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ]),
                                 child: Text(
                                   // "View".toUpperCase(),
-                                  "Proceed".toUpperCase(),
+                                  "View".toUpperCase(),
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,

@@ -37,6 +37,7 @@ class Avatar extends StatefulWidget {
 
 class _AvatarState extends State<Avatar> {
   bool _enabled = true;
+  bool isLoadingspnr = false;
   int _selectedTabIndex = 0;
   String backendip = "192.168.8.158";
   bool _isDetectingPose = false;
@@ -425,8 +426,11 @@ class _AvatarState extends State<Avatar> {
                       Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: GestureDetector(
-                          onTap: () {
+                          onTap: () async {
                             avatercreate();
+                            setState(() => isLoadingspnr = true);
+                            await Future.delayed(const Duration(seconds: 3));
+                            setState(() => isLoadingspnr = false);
                             Navigator.push(
                               context,
                               MaterialPageRoute(

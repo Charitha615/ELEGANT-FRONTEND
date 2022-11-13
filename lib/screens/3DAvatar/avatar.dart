@@ -239,9 +239,10 @@ class _AvatarState extends State<Avatar> {
     String path = fp.toString();
     String? newqqq = path.split(":").last;
     String ello = newqqq.substring(2, newqqq.length - 1);
+    var response;
 
     try {
-      print(fp + "headsadasdasdasdasdasdasdasdsadsdasda");
+      // print(fp + "headsadasdasdasdasdasdasdasdsadsdasda");
       var formdata =
           FormData.fromMap({"image": await MultipartFile.fromFile(ello)});
       var response = await Dio()
@@ -255,6 +256,8 @@ class _AvatarState extends State<Avatar> {
       print(e);
       print("catch....................................");
     }
+    print(response);
+    print("Outside");
   }
 
   Widget get _imageDetectionView => SingleChildScrollView(
@@ -304,7 +307,7 @@ class _AvatarState extends State<Avatar> {
                       height: 400,
                       width: 400,
                     ),
-                  ] 
+                  ]
                 ],
               ),
               Container(
@@ -418,57 +421,53 @@ class _AvatarState extends State<Avatar> {
                         ),
                       ),
                     ),
-
-if (fp != null) ...[        
-              Padding(
-
-                      padding: const EdgeInsets.only(left: 10),
-                      child: GestureDetector(
-
-                        onTap: () {
-
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => previewav('Male', 14, 34,
-                                  34), //myshoulderwidth, myhip, myleglength
-                            ),
-                          );
-                        },
-                        child: Container(
-                          alignment: Alignment.center,
-                          height: 35,
-                          width: 60,
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color.fromARGB(210, 44, 9, 241),
-                                  Color.fromARGB(255, 181, 10, 224),
-                                ],
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
+                    if (fp != null) ...[
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: GestureDetector(
+                          onTap: () {
+                            avatercreate();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => previewav('Male', 14, 34,
+                                    34), //myshoulderwidth, myhip, myleglength
                               ),
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
-                                (BoxShadow(
-
-                                  offset: Offset(0, 10),
-                                  blurRadius: 50,
-                                  color: Color(0xffEEEEEE),
-                                ))
-                              ]),
-                          child: const Text(
-                            'Next',
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.white,
-                              // backgroundColor: Color.fromARGB(255, 181, 10, 224),
+                            );
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 35,
+                            width: 60,
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [
+                                    Color.fromARGB(210, 44, 9, 241),
+                                    Color.fromARGB(255, 181, 10, 224),
+                                  ],
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                                boxShadow: [
+                                  (BoxShadow(
+                                    offset: Offset(0, 10),
+                                    blurRadius: 50,
+                                    color: Color(0xffEEEEEE),
+                                  ))
+                                ]),
+                            child: const Text(
+                              'Next',
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                                // backgroundColor: Color.fromARGB(255, 181, 10, 224),
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-],
+                    ],
                   ],
                 ),
               ),

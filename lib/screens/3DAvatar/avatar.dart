@@ -22,7 +22,7 @@ import '../ClothesSelect/ShoppingItems.dart';
 import '../ClothesSelect/msrnt.dart';
 import '../home/home_screen.dart';
 
-var fp;
+var fp = null;
 void main() {
   runApp(const Avatar());
 }
@@ -450,7 +450,6 @@ if (fp != null) ...[
                               borderRadius: BorderRadius.circular(10),
                               boxShadow: [
                                 (BoxShadow(
-
                                   offset: Offset(0, 10),
                                   blurRadius: 50,
                                   color: Color(0xffEEEEEE),
@@ -467,6 +466,7 @@ if (fp != null) ...[
                         ),
                       ),
                     ),
+                    
 ],
                   ],
                 ),
@@ -536,12 +536,12 @@ if (fp != null) ...[
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.image),
+              icon: Icon(Icons.image),  
               label: 'Image',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.camera),
-              label: 'Camera',
+              label: 'Give it a try',
             ),
           ],
           currentIndex: _selectedTabIndex,

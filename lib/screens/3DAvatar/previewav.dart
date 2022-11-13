@@ -93,11 +93,16 @@ class _State extends State<previewav> {
                     padding: const EdgeInsets.only(top: 10),
                     child: Cube(
                       onSceneCreated: (Scene scene) {
-                        scene.world.add(Object(
-                            position: Vector3(0, 2.0, 0),
-                            scale: Vector3(6.0, 6.0, 6.0),
-                            // fileName: 'assets/avatar/000000.obj'));
-                            fileName: 'assets/avatar/000000.obj'));
+                        scene.world.add(
+                          Object(
+                              position: Vector3(0, 2.0, 0),
+                              scale: Vector3(6.0, 6.0, 6.0),
+                              // fileName: 'assets/avatar/000000.obj'));
+                              fileName: 'assets/avatar/000000.obj'
+                              // fileName:
+                              //     '/data/user/0/com.example.elegant_fit_on/cache/file_picker/000000.obj'));
+                              ),
+                        );
                       },
                     ),
                   ),

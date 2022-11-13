@@ -53,7 +53,7 @@ class Sizer extends StatefulWidget {
 class MyHomePage extends State {
   String ChoisedSize = 'S';
   String RecommendedSize = 'S';
-  int id = 1;
+  int id = 2;
   String clothType;
   int myshoulderwidth;
   int myhip;
